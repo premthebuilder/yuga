@@ -97,12 +97,9 @@
 		1DD61BE11EC5453000E05994 /* yuga */ = {
 			isa = PBXGroup;
 			children = (
-				1DD61BE21EC5453000E05994 /* AppDelegate.swift */,
+				1DD61C111EC5459D00E05994 /* SupportingFiles */,
 				1DD61BE41EC5453000E05994 /* ViewController.swift */,
 				1DD61BE61EC5453000E05994 /* Main.storyboard */,
-				1DD61BE91EC5453000E05994 /* Assets.xcassets */,
-				1DD61BEB1EC5453000E05994 /* LaunchScreen.storyboard */,
-				1DD61BEE1EC5453000E05994 /* Info.plist */,
 			);
 			path = yuga;
 			sourceTree = "<group>";
@@ -123,6 +120,17 @@
 				1DD61C041EC5453100E05994 /* Info.plist */,
 			);
 			path = yugaUITests;
+			sourceTree = "<group>";
+		};
+		1DD61C111EC5459D00E05994 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1DD61BE21EC5453000E05994 /* AppDelegate.swift */,
+				1DD61BEE1EC5453000E05994 /* Info.plist */,
+				1DD61BE91EC5453000E05994 /* Assets.xcassets */,
+				1DD61BEB1EC5453000E05994 /* LaunchScreen.storyboard */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
