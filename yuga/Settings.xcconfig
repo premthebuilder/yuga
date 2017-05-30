@@ -1,0 +1,10 @@
+//
+//  Settings.xcconfig
+//  yuga
+//
+//  Created by PREMCHAND CHIDIPOTI on 5/14/17.
+//  Copyright © 2017 PREMCHAND CHIDIPOTI. All rights reserved.
+//
+
+// DEV
+yuga.server.url = "http://127.0.0.1:8000/"

@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2A9BD71EDC556B00847CBD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD61EDC556B00847CBD /* MainViewController.swift */; };
+		1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */; };
 		1DD61BE31EC5453000E05994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE21EC5453000E05994 /* AppDelegate.swift */; };
-		1DD61BE51EC5453000E05994 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE41EC5453000E05994 /* ViewController.swift */; };
+		1DD61BE51EC5453000E05994 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE41EC5453000E05994 /* LoginViewController.swift */; };
 		1DD61BE81EC5453000E05994 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61BE61EC5453000E05994 /* Main.storyboard */; };
 		1DD61BEA1EC5453000E05994 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61BE91EC5453000E05994 /* Assets.xcassets */; };
 		1DD61BED1EC5453000E05994 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61BEB1EC5453000E05994 /* LaunchScreen.storyboard */; };
 		1DD61BF81EC5453100E05994 /* yugaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BF71EC5453100E05994 /* yugaTests.swift */; };
 		1DD61C031EC5453100E05994 /* yugaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C021EC5453100E05994 /* yugaUITests.swift */; };
+		1DD61C131EC8AAB400E05994 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C121EC8AAB400E05994 /* UserModel.swift */; };
+		1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C141EC8B8AC00E05994 /* YugaClient.swift */; };
+		1DD61C181EC8C67E00E05994 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61C171EC8C67E00E05994 /* Settings.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D2A9BD61EDC556B00847CBD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1DD61BDF1EC5453000E05994 /* yuga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yuga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD61BE21EC5453000E05994 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1DD61BE41EC5453000E05994 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1DD61BE41EC5453000E05994 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1DD61BE71EC5453000E05994 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DD61BE91EC5453000E05994 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DD61BEC1EC5453000E05994 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,9 @@
 		1DD61BFE1EC5453100E05994 /* yugaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = yugaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD61C021EC5453100E05994 /* yugaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yugaUITests.swift; sourceTree = "<group>"; };
 		1DD61C041EC5453100E05994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DD61C121EC8AAB400E05994 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		1DD61C141EC8B8AC00E05994 /* YugaClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YugaClient.swift; sourceTree = "<group>"; };
+		1DD61C171EC8C67E00E05994 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +108,13 @@
 			isa = PBXGroup;
 			children = (
 				1DD61C111EC5459D00E05994 /* SupportingFiles */,
-				1DD61BE41EC5453000E05994 /* ViewController.swift */,
+				1DD61BE41EC5453000E05994 /* LoginViewController.swift */,
 				1DD61BE61EC5453000E05994 /* Main.storyboard */,
+				1DD61C121EC8AAB400E05994 /* UserModel.swift */,
+				1DD61C141EC8B8AC00E05994 /* YugaClient.swift */,
+				1DD61C171EC8C67E00E05994 /* Settings.plist */,
+				1D2A9BD61EDC556B00847CBD /* MainViewController.swift */,
+				1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */,
 			);
 			path = yuga;
 			sourceTree = "<group>";
@@ -241,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD61BED1EC5453000E05994 /* LaunchScreen.storyboard in Resources */,
+				1DD61C181EC8C67E00E05994 /* Settings.plist in Resources */,
 				1DD61BEA1EC5453000E05994 /* Assets.xcassets in Resources */,
 				1DD61BE81EC5453000E05994 /* Main.storyboard in Resources */,
 			);
@@ -267,8 +283,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DD61BE51EC5453000E05994 /* ViewController.swift in Sources */,
+				1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */,
+				1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */,
+				1DD61BE51EC5453000E05994 /* LoginViewController.swift in Sources */,
+				1DD61C131EC8AAB400E05994 /* UserModel.swift in Sources */,
 				1DD61BE31EC5453000E05994 /* AppDelegate.swift in Sources */,
+				1D2A9BD71EDC556B00847CBD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +535,7 @@
 				1DD61C091EC5453100E05994 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DD61C0A1EC5453100E05994 /* Build configuration list for PBXNativeTarget "yugaTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +544,7 @@
 				1DD61C0C1EC5453100E05994 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DD61C0D1EC5453100E05994 /* Build configuration list for PBXNativeTarget "yugaUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +553,7 @@
 				1DD61C0F1EC5453100E05994 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
