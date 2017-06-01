@@ -15,7 +15,19 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var verifyPassword: UITextField!
     @IBOutlet weak var name: UITextField!
     
+    let userModel = UserModel()
+    
     @IBAction func signUp(_ sender: UIButton) {
+        if(emailId != nil && password != nil &&
+            verifyPassword != nil && password!.text! == verifyPassword!.text! && name != nil) {
+            userModel.signUp(emailId!.text!, password!.text!, emailId!.text!, name!.text!, signUpDone)
+        }
+    }
+    
+    func signUpDone() {
+        print("Yay! I am in.")
+        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController") as! MainViewController
+        self.present(mainViewController, animated:true, completion:nil)
         
     }
     override func viewDidLoad() {

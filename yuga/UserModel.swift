@@ -11,12 +11,14 @@ import Foundation
 class UserModel {
     
     let baseUrl = "http://127.0.0.1:8000/"
-    let loginTail = "api-token-auth/login/"
+    let loginEndPoint = "api-token-auth/login/"
+    let registerEndPoint = "register/"
     var loginSession:String = ""
     
-    func postRequest(_ postData: NSDictionary, _ onComplete: @escaping ((NSDictionary)->Void)) {
+    func postRequest(_ postData: NSDictionary, _ endPoint: String,
+                     _ onComplete: @escaping ((NSDictionary)->Void)) {
         
-        let url:URL = URL(string: baseUrl + loginTail)!
+        let url:URL = URL(string: baseUrl + endPoint)!
         let session = URLSession.shared
         
         let request = NSMutableURLRequest(url: url)
@@ -81,7 +83,23 @@ class UserModel {
                 DispatchQueue.main.async(execute: loginDone)
             }
         }
-        postRequest(postData, onServerResponse)
+        postRequest(postData, loginEndPoint, onServerResponse)
+        
+    }
+    
+    func signUp(_ userName: String, _ password: String,
+                _ emailId: String, _ name:String, _ signUpDone:@escaping (()->Void) ) {
+        let postData: NSDictionary = NSMutableDictionary()
+        
+        postData.setValue(userName, forKey: "username")
+        postData.setValue(password, forKey: "password")
+        postData.setValue(emailId, forKey: "email")
+        postData.setValue(name, forKey: "first_name")
+        
+        func onServerResponse(_ serverResponse : NSDictionary){
+            login(userName, password, signUpDone)
+        }
+        postRequest(postData, registerEndPoint, onServerResponse)
         
     }
     
