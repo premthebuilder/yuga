@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     func loginDone() {
         print("Yay! I am in.")
         let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController") as! MainViewController
+        mainViewController.userModel = self.userModel
         self.present(mainViewController, animated:true, completion:nil)
         
     }

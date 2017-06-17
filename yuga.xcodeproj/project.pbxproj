@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D2A9BD71EDC556B00847CBD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD61EDC556B00847CBD /* MainViewController.swift */; };
 		1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */; };
+		1D70F20F1EF4DB37000FE96C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70F20A1EF4D975000FE96C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DD61BE31EC5453000E05994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE21EC5453000E05994 /* AppDelegate.swift */; };
 		1DD61BE51EC5453000E05994 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE41EC5453000E05994 /* LoginViewController.swift */; };
 		1DD61BE81EC5453000E05994 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61BE61EC5453000E05994 /* Main.storyboard */; };
@@ -19,9 +20,45 @@
 		1DD61C131EC8AAB400E05994 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C121EC8AAB400E05994 /* UserModel.swift */; };
 		1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C141EC8B8AC00E05994 /* YugaClient.swift */; };
 		1DD61C181EC8C67E00E05994 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61C171EC8C67E00E05994 /* Settings.plist */; };
+		1DFB78A91EF37FBA001D167E /* HttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB78A81EF37FBA001D167E /* HttpModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1D70F2051EF4D975000FE96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0A76440F1B676C2300BF1A2D;
+			remoteInfo = Demo;
+		};
+		1D70F2071EF4D975000FE96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0A7644241B676C2300BF1A2D;
+			remoteInfo = DropDownTests;
+		};
+		1D70F2091EF4D975000FE96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0AB5D8711D0EEECD002D3A17;
+			remoteInfo = DropDown;
+		};
+		1D70F20B1EF4DAF7000FE96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AB5D8701D0EEECD002D3A17;
+			remoteInfo = DropDown;
+		};
+		1D70F2101EF4DB37000FE96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AB5D8701D0EEECD002D3A17;
+			remoteInfo = DropDown;
+		};
 		1DD61BF41EC5453100E05994 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1DD61BD71EC5453000E05994 /* Project object */;
@@ -38,9 +75,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1D70F2121EF4DB37000FE96C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1D70F20F1EF4DB37000FE96C /* DropDown.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1D2A9BD61EDC556B00847CBD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DropDown.xcodeproj; path = DropDown/DropDown.xcodeproj; sourceTree = "<group>"; };
 		1DD61BDF1EC5453000E05994 /* yuga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yuga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD61BE21EC5453000E05994 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD61BE41EC5453000E05994 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +109,7 @@
 		1DD61C121EC8AAB400E05994 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		1DD61C141EC8B8AC00E05994 /* YugaClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YugaClient.swift; sourceTree = "<group>"; };
 		1DD61C171EC8C67E00E05994 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		1DFB78A81EF37FBA001D167E /* HttpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +137,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D70F2001EF4D974000FE96C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D70F2061EF4D975000FE96C /* Demo.app */,
+				1D70F2081EF4D975000FE96C /* DropDownTests.xctest */,
+				1D70F20A1EF4D975000FE96C /* DropDown.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1DD61BD61EC5453000E05994 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +154,7 @@
 				1DD61BF61EC5453100E05994 /* yugaTests */,
 				1DD61C011EC5453100E05994 /* yugaUITests */,
 				1DD61BE01EC5453000E05994 /* Products */,
+				1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +175,7 @@
 				1DD61BE41EC5453000E05994 /* LoginViewController.swift */,
 				1DD61BE61EC5453000E05994 /* Main.storyboard */,
 				1DD61C121EC8AAB400E05994 /* UserModel.swift */,
+				1DFB78A81EF37FBA001D167E /* HttpModel.swift */,
 				1DD61C141EC8B8AC00E05994 /* YugaClient.swift */,
 				1DD61C171EC8C67E00E05994 /* Settings.plist */,
 				1D2A9BD61EDC556B00847CBD /* MainViewController.swift */,
@@ -158,10 +223,13 @@
 				1DD61BDB1EC5453000E05994 /* Sources */,
 				1DD61BDC1EC5453000E05994 /* Frameworks */,
 				1DD61BDD1EC5453000E05994 /* Resources */,
+				1D70F2121EF4DB37000FE96C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1D70F20C1EF4DAF7000FE96C /* PBXTargetDependency */,
+				1D70F2111EF4DB37000FE96C /* PBXTargetDependency */,
 			);
 			name = yuga;
 			productName = yuga;
@@ -241,6 +309,12 @@
 			mainGroup = 1DD61BD61EC5453000E05994;
 			productRefGroup = 1DD61BE01EC5453000E05994 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1D70F2001EF4D974000FE96C /* Products */;
+					ProjectRef = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1DD61BDE1EC5453000E05994 /* yuga */,
@@ -249,6 +323,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1D70F2061EF4D975000FE96C /* Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Demo.app;
+			remoteRef = 1D70F2051EF4D975000FE96C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1D70F2081EF4D975000FE96C /* DropDownTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DropDownTests.xctest;
+			remoteRef = 1D70F2071EF4D975000FE96C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1D70F20A1EF4D975000FE96C /* DropDown.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DropDown.framework;
+			remoteRef = 1D70F2091EF4D975000FE96C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1DD61BDD1EC5453000E05994 /* Resources */ = {
@@ -287,6 +385,7 @@
 				1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */,
 				1DD61BE51EC5453000E05994 /* LoginViewController.swift in Sources */,
 				1DD61C131EC8AAB400E05994 /* UserModel.swift in Sources */,
+				1DFB78A91EF37FBA001D167E /* HttpModel.swift in Sources */,
 				1DD61BE31EC5453000E05994 /* AppDelegate.swift in Sources */,
 				1D2A9BD71EDC556B00847CBD /* MainViewController.swift in Sources */,
 			);
@@ -311,6 +410,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1D70F20C1EF4DAF7000FE96C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DropDown;
+			targetProxy = 1D70F20B1EF4DAF7000FE96C /* PBXContainerItemProxy */;
+		};
+		1D70F2111EF4DB37000FE96C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DropDown;
+			targetProxy = 1D70F2101EF4DB37000FE96C /* PBXContainerItemProxy */;
+		};
 		1DD61BF51EC5453100E05994 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1DD61BDE1EC5453000E05994 /* yuga */;
@@ -441,6 +550,7 @@
 		1DD61C081EC5453100E05994 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = yuga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -453,6 +563,7 @@
 		1DD61C091EC5453100E05994 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = yuga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
