@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,6 +61,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="password" destination="52o-Js-lSc" id="URv-I0-Bs8"/>
@@ -69,6 +71,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85.599999999999994" y="138.98050974512745"/>
+        </scene>
+        <!--New Story View Controller-->
+        <scene sceneID="OGH-Oo-sDJ">
+            <objects>
+                <viewController storyboardIdentifier="newStoryViewController" id="6RZ-fA-bEW" customClass="NewStoryViewController" customModule="yuga" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p5u-ut-Vaz"/>
+                        <viewControllerLayoutGuide type="bottom" id="d4k-Jb-Ozm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kad-XP-dqC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7W5-Yx-IbR">
+                                <rect key="frame" x="-1" y="20" width="375" height="307"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mF5-2V-mer">
+                                <rect key="frame" x="23" y="351" width="328" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="wj1-j9-ial">
+                                <rect key="frame" x="23" y="399" width="328" height="219"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-At-cAR">
+                                <rect key="frame" x="305" y="621" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createStory:" destination="6RZ-fA-bEW" eventType="touchUpInside" id="SUQ-fk-3kI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="7W5-Yx-IbR" id="ZmS-pQ-8Yf"/>
+                        <outlet property="storyContent" destination="wj1-j9-ial" id="Tnh-6B-8uc"/>
+                        <outlet property="storyTitle" destination="mF5-2V-mer" id="Lxm-1Q-dS4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jIS-gB-HDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1538.4000000000001" y="158.77061469265368"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="LYU-7e-HCV">
@@ -82,32 +138,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hey there!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlE-AM-dRT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey there!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlE-AM-dRT">
                                 <rect key="frame" x="16" y="20" width="180" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="XpQ-Fk-uZe"/>
+                                    <constraint firstAttribute="width" constant="180" id="mQK-mJ-ewH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="892-ea-HiY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="892-ea-HiY">
                                 <rect key="frame" x="327" y="10" width="46" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="A1A-8o-dZG"/>
+                                    <constraint firstAttribute="width" constant="46" id="eTD-F7-e0q"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <state key="normal" title="..."/>
                                 <connections>
                                     <action selector="showUserOptionsDropDown:" destination="khD-eQ-dIb" eventType="touchUpInside" id="Qxk-q8-9w9"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" translatesAutoresizingMaskIntoConstraints="NO" id="mjw-Rc-UUN">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="syP-hD-4wa"/>
+                                    <barButtonItem image="cameraIcon" id="XVc-oj-2Og">
+                                        <inset key="imageInsets" minX="2" minY="3" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" red="0.52245265460000001" green="0.53909333869999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="useCamera:" destination="khD-eQ-dIb" id="CNJ-7a-292"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bkG-Pd-nhL"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="892-ea-HiY" secondAttribute="trailing" constant="-14" id="DYd-vG-NvW"/>
+                            <constraint firstItem="mjw-Rc-UUN" firstAttribute="leading" secondItem="eDW-rz-Uj6" secondAttribute="leading" id="Nag-Q6-7Xj"/>
+                            <constraint firstAttribute="trailing" secondItem="mjw-Rc-UUN" secondAttribute="trailing" id="PBE-ok-ZFd"/>
+                            <constraint firstItem="PlE-AM-dRT" firstAttribute="leading" secondItem="eDW-rz-Uj6" secondAttribute="leadingMargin" id="PkJ-VF-L3L"/>
+                            <constraint firstItem="PlE-AM-dRT" firstAttribute="top" secondItem="eDW-rz-Uj6" secondAttribute="top" constant="20" symbolic="YES" id="XCR-VB-AYM"/>
+                            <constraint firstItem="892-ea-HiY" firstAttribute="top" secondItem="k1u-Is-hY0" secondAttribute="bottom" constant="10" id="fk9-42-TkT"/>
+                            <constraint firstItem="mjw-Rc-UUN" firstAttribute="bottom" secondItem="RGg-eR-9Ji" secondAttribute="top" id="hqi-Gs-VI2"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="userOptions" destination="892-ea-HiY" id="fjU-A9-AT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFv-QU-3yw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-711" y="159"/>
+            <point key="canvasLocation" x="-711.20000000000005" y="158.77061469265368"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vdx-fv-2pb">
@@ -160,6 +251,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="emailId" destination="ZX9-qZ-6rO" id="tg3-vR-2t6"/>
@@ -173,4 +265,8 @@
             <point key="canvasLocation" x="1549.5999999999999" y="139.880059970015"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cameraIcon" width="50" height="50"/>
+    </resources>
+    <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D28BC211F000CD900E82932 /* camera_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D28BC201F000CD900E82932 /* camera_icon.png */; };
+		1D28BC251F001DE700E82932 /* camera_icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D28BC241F001DE700E82932 /* camera_icon_small.png */; };
+		1D28BC271F00222000E82932 /* camer_icon_xtrasmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D28BC261F00222000E82932 /* camer_icon_xtrasmall.png */; };
 		1D2A9BD71EDC556B00847CBD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD61EDC556B00847CBD /* MainViewController.swift */; };
 		1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */; };
+		1D61B1071F0B4B6400235816 /* StoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61B1061F0B4B6400235816 /* StoryModel.swift */; };
+		1D61B10B1F0B568300235816 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61B10A1F0B568200235816 /* ItemModel.swift */; };
 		1D70F20F1EF4DB37000FE96C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70F20A1EF4D975000FE96C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D70F24E1EF71915000FE96C /* NewStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */; };
 		1DD61BE31EC5453000E05994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE21EC5453000E05994 /* AppDelegate.swift */; };
 		1DD61BE51EC5453000E05994 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE41EC5453000E05994 /* LoginViewController.swift */; };
 		1DD61BE81EC5453000E05994 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61BE61EC5453000E05994 /* Main.storyboard */; };
@@ -90,9 +96,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D28BC201F000CD900E82932 /* camera_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon.png; path = ../../../Downloads/camera_icon.png; sourceTree = "<group>"; };
+		1D28BC241F001DE700E82932 /* camera_icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon_small.png; path = ../../../Downloads/camera_icon_small.png; sourceTree = "<group>"; };
+		1D28BC261F00222000E82932 /* camer_icon_xtrasmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camer_icon_xtrasmall.png; path = ../../../Downloads/camer_icon_xtrasmall.png; sourceTree = "<group>"; };
 		1D2A9BD61EDC556B00847CBD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1D61B1061F0B4B6400235816 /* StoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryModel.swift; sourceTree = "<group>"; };
+		1D61B10A1F0B568200235816 /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DropDown.xcodeproj; path = DropDown/DropDown.xcodeproj; sourceTree = "<group>"; };
+		1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStoryViewController.swift; sourceTree = "<group>"; };
 		1DD61BDF1EC5453000E05994 /* yuga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yuga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD61BE21EC5453000E05994 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD61BE41EC5453000E05994 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +149,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D28BC1C1F000B9600E82932 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1D28BC1F1F000BA100E82932 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1D28BC1F1F000BA100E82932 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1D28BC261F00222000E82932 /* camer_icon_xtrasmall.png */,
+				1D28BC241F001DE700E82932 /* camera_icon_small.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		1D70F2001EF4D974000FE96C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,10 +200,14 @@
 		1DD61BE11EC5453000E05994 /* yuga */ = {
 			isa = PBXGroup;
 			children = (
+				1D28BC1C1F000B9600E82932 /* Resources */,
 				1DD61C111EC5459D00E05994 /* SupportingFiles */,
 				1DD61BE41EC5453000E05994 /* LoginViewController.swift */,
+				1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */,
 				1DD61BE61EC5453000E05994 /* Main.storyboard */,
 				1DD61C121EC8AAB400E05994 /* UserModel.swift */,
+				1D61B10A1F0B568200235816 /* ItemModel.swift */,
+				1D61B1061F0B4B6400235816 /* StoryModel.swift */,
 				1DFB78A81EF37FBA001D167E /* HttpModel.swift */,
 				1DD61C141EC8B8AC00E05994 /* YugaClient.swift */,
 				1DD61C171EC8C67E00E05994 /* Settings.plist */,
@@ -208,6 +241,7 @@
 				1DD61BE21EC5453000E05994 /* AppDelegate.swift */,
 				1DD61BEE1EC5453000E05994 /* Info.plist */,
 				1DD61BE91EC5453000E05994 /* Assets.xcassets */,
+				1D28BC201F000CD900E82932 /* camera_icon.png */,
 				1DD61BEB1EC5453000E05994 /* LaunchScreen.storyboard */,
 			);
 			name = SupportingFiles;
@@ -356,7 +390,10 @@
 				1DD61BED1EC5453000E05994 /* LaunchScreen.storyboard in Resources */,
 				1DD61C181EC8C67E00E05994 /* Settings.plist in Resources */,
 				1DD61BEA1EC5453000E05994 /* Assets.xcassets in Resources */,
+				1D28BC271F00222000E82932 /* camer_icon_xtrasmall.png in Resources */,
+				1D28BC211F000CD900E82932 /* camera_icon.png in Resources */,
 				1DD61BE81EC5453000E05994 /* Main.storyboard in Resources */,
+				1D28BC251F001DE700E82932 /* camera_icon_small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +418,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D61B10B1F0B568300235816 /* ItemModel.swift in Sources */,
 				1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */,
+				1D70F24E1EF71915000FE96C /* NewStoryViewController.swift in Sources */,
+				1D61B1071F0B4B6400235816 /* StoryModel.swift in Sources */,
 				1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */,
 				1DD61BE51EC5453000E05994 /* LoginViewController.swift in Sources */,
 				1DD61C131EC8AAB400E05994 /* UserModel.swift in Sources */,

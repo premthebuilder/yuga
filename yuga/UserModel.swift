@@ -20,6 +20,7 @@ class UserModel {
     
     func login(_ userName: String, _ password: String, _ loginDone:@escaping (()->Void) ) {
         let postData: NSDictionary = NSMutableDictionary()
+        let postHeaders: NSDictionary = NSMutableDictionary()
         
         postData.setValue(userName, forKey: "username")
         postData.setValue(password, forKey: "password")
@@ -35,13 +36,14 @@ class UserModel {
                 DispatchQueue.main.async(execute: loginDone)
             }
         }
-        HttpModel.shared.postRequest(postData, loginEndPoint, onServerResponse)
+        HttpModel.shared.postRequest(postData, postHeaders, loginEndPoint, onServerResponse)
         
     }
     
     func signUp(_ userName: String, _ password: String,
                 _ emailId: String, _ name:String, _ signUpDone:@escaping (()->Void) ) {
         let postData: NSDictionary = NSMutableDictionary()
+        let postHeaders: NSDictionary = NSMutableDictionary()
         
         postData.setValue(userName, forKey: "username")
         postData.setValue(password, forKey: "password")
@@ -51,7 +53,7 @@ class UserModel {
         func onServerResponse(_ serverResponse : NSDictionary){
             login(userName, password, signUpDone)
         }
-        HttpModel.shared.postRequest(postData, registerEndPoint, onServerResponse)
+        HttpModel.shared.postRequest(postData, postHeaders, registerEndPoint, onServerResponse)
         
     }
     
