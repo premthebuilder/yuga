@@ -16,6 +16,9 @@
 		1D61B10B1F0B568300235816 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61B10A1F0B568200235816 /* ItemModel.swift */; };
 		1D70F20F1EF4DB37000FE96C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70F20A1EF4D975000FE96C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D70F24E1EF71915000FE96C /* NewStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */; };
+		1DB837CA1F3EC181001CD984 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB837C51F3EC171001CD984 /* CryptoSwift.framework */; };
+		1DB837CB1F3EC181001CD984 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB837C51F3EC171001CD984 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1DC9076F1F23E820005AE148 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9076E1F23E820005AE148 /* MyCollectionViewCell.swift */; };
 		1DD61BE31EC5453000E05994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE21EC5453000E05994 /* AppDelegate.swift */; };
 		1DD61BE51EC5453000E05994 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61BE41EC5453000E05994 /* LoginViewController.swift */; };
 		1DD61BE81EC5453000E05994 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61BE61EC5453000E05994 /* Main.storyboard */; };
@@ -65,6 +68,27 @@
 			remoteGlobalIDString = 0AB5D8701D0EEECD002D3A17;
 			remoteInfo = DropDown;
 		};
+		1DB837C41F3EC171001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB837BF1F3EC170001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		1DB837C61F3EC171001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB837BF1F3EC170001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		1DB837CC1F3EC181001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB837BF1F3EC170001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
 		1DD61BF41EC5453100E05994 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1DD61BD71EC5453000E05994 /* Project object */;
@@ -89,6 +113,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				1D70F20F1EF4DB37000FE96C /* DropDown.framework in Embed Frameworks */,
+				1DB837CB1F3EC181001CD984 /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +130,8 @@
 		1D61B10A1F0B568200235816 /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DropDown.xcodeproj; path = DropDown/DropDown.xcodeproj; sourceTree = "<group>"; };
 		1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStoryViewController.swift; sourceTree = "<group>"; };
+		1DB837BF1F3EC170001CD984 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		1DC9076E1F23E820005AE148 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		1DD61BDF1EC5453000E05994 /* yuga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yuga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD61BE21EC5453000E05994 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD61BE41EC5453000E05994 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DB837CA1F3EC181001CD984 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,9 +204,41 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1DB837C01F3EC170001CD984 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DB837C51F3EC171001CD984 /* CryptoSwift.framework */,
+				1DB837C71F3EC171001CD984 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DCB17751F26C38E00BEC71E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DD61C121EC8AAB400E05994 /* UserModel.swift */,
+				1D61B10A1F0B568200235816 /* ItemModel.swift */,
+				1D61B1061F0B4B6400235816 /* StoryModel.swift */,
+				1DFB78A81EF37FBA001D167E /* HttpModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1DCB17761F26C3B200BEC71E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1DD61BE41EC5453000E05994 /* LoginViewController.swift */,
+				1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */,
+				1D2A9BD61EDC556B00847CBD /* MainViewController.swift */,
+				1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		1DD61BD61EC5453000E05994 = {
 			isa = PBXGroup;
 			children = (
+				1DB837BF1F3EC170001CD984 /* CryptoSwift.xcodeproj */,
 				1DD61BE11EC5453000E05994 /* yuga */,
 				1DD61BF61EC5453100E05994 /* yugaTests */,
 				1DD61C011EC5453100E05994 /* yugaUITests */,
@@ -202,17 +262,12 @@
 			children = (
 				1D28BC1C1F000B9600E82932 /* Resources */,
 				1DD61C111EC5459D00E05994 /* SupportingFiles */,
-				1DD61BE41EC5453000E05994 /* LoginViewController.swift */,
-				1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */,
+				1DCB17761F26C3B200BEC71E /* Controller */,
 				1DD61BE61EC5453000E05994 /* Main.storyboard */,
-				1DD61C121EC8AAB400E05994 /* UserModel.swift */,
-				1D61B10A1F0B568200235816 /* ItemModel.swift */,
-				1D61B1061F0B4B6400235816 /* StoryModel.swift */,
-				1DFB78A81EF37FBA001D167E /* HttpModel.swift */,
+				1DCB17751F26C38E00BEC71E /* Model */,
+				1DC9076E1F23E820005AE148 /* MyCollectionViewCell.swift */,
 				1DD61C141EC8B8AC00E05994 /* YugaClient.swift */,
 				1DD61C171EC8C67E00E05994 /* Settings.plist */,
-				1D2A9BD61EDC556B00847CBD /* MainViewController.swift */,
-				1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */,
 			);
 			path = yuga;
 			sourceTree = "<group>";
@@ -264,6 +319,7 @@
 			dependencies = (
 				1D70F20C1EF4DAF7000FE96C /* PBXTargetDependency */,
 				1D70F2111EF4DB37000FE96C /* PBXTargetDependency */,
+				1DB837CD1F3EC181001CD984 /* PBXTargetDependency */,
 			);
 			name = yuga;
 			productName = yuga;
@@ -345,6 +401,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 1DB837C01F3EC170001CD984 /* Products */;
+					ProjectRef = 1DB837BF1F3EC170001CD984 /* CryptoSwift.xcodeproj */;
+				},
+				{
 					ProductGroup = 1D70F2001EF4D974000FE96C /* Products */;
 					ProjectRef = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
 				},
@@ -378,6 +438,20 @@
 			fileType = wrapper.framework;
 			path = DropDown.framework;
 			remoteRef = 1D70F2091EF4D975000FE96C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DB837C51F3EC171001CD984 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 1DB837C41F3EC171001CD984 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DB837C71F3EC171001CD984 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 1DB837C61F3EC171001CD984 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -418,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DC9076F1F23E820005AE148 /* MyCollectionViewCell.swift in Sources */,
 				1D61B10B1F0B568300235816 /* ItemModel.swift in Sources */,
 				1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */,
 				1D70F24E1EF71915000FE96C /* NewStoryViewController.swift in Sources */,
@@ -459,6 +534,11 @@
 			isa = PBXTargetDependency;
 			name = DropDown;
 			targetProxy = 1D70F2101EF4DB37000FE96C /* PBXContainerItemProxy */;
+		};
+		1DB837CD1F3EC181001CD984 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = 1DB837CC1F3EC181001CD984 /* PBXContainerItemProxy */;
 		};
 		1DD61BF51EC5453100E05994 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

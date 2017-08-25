@@ -11,14 +11,15 @@
  
  typealias Proc = () -> ()
  
- class MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+ class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     //MARK: - Properties
     @IBOutlet weak var userOptions: UIButton!
     
+    @IBOutlet weak var newsList: UICollectionView!
     var userModel: UserModel!
+    let storyModel = StoryModel()
     
-    var selectedImage: UIImage!
     
     //MARK: - DropDowns
     let userOptionsDropDown = DropDown()
@@ -31,6 +32,38 @@
     func logout() {
         userModel.logout()
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
+    var items : [NSDictionary] = [["text":"test text", "title":"test title"]]
+
+    // MARK: - UICollectionViewDataSource protocol
+    
+    // tell the collection view how many cells to make
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    
+    // make a cell for each cell index path
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // get a reference to our storyboard cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewCell
+        
+        // Use the outlet in our custom class to get a reference to the UILabel in the cell
+        let currentItem = self.items[indexPath.item]
+        cell.storyText.text = currentItem.value(forKey: "text") as? String
+        cell.storyTitle.text = currentItem.value(forKey: "title") as? String
+        cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+        
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate protocol
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
     }
     
     func setupUserOptionsDropDown() {
@@ -57,56 +90,19 @@
             topController.present(newStoryViewController!, animated:true, completion:nil)
             // topController should now be your topmost view controller
         }
-        
-//        let imagePickerController = UIImagePickerController()
-//        imagePickerController.delegate = self
-//        
-//        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
-//        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action:UIAlertAction) in
-//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//                imagePickerController.sourceType = .camera
-//                self.present(actionSheet, animated: true, completion: nil)
-//            }
-//            else {
-//                print("Camera not available")
-//            }
-//        }))
-//        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action:UIAlertAction) in imagePickerController.sourceType = .photoLibrary
-//            self.present(imagePickerController, animated: true, completion: nil)}))
-//        
-//        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//        self.present(actionSheet, animated: true, completion: nil)
+
     }
     
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        picker.delegate = self
-//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//            selectedImage = image
-//            newStoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "newStoryViewController") as? NewStoryViewController
-//            
-//            newStoryViewController?.imageToAdd = image
-//            
-//            if var topController = UIApplication.shared.keyWindow?.rootViewController {
-//                while let presentedViewController = topController.presentedViewController {
-//                    topController = presentedViewController
-//                }
-//                topController.present(newStoryViewController!, animated:true, completion:nil)
-//                // topController should now be your topmost view controller
-//            }
-//        } else{
-//            print("Something went wrong")
-//        }
-//        picker.dismiss(animated: true, completion: nil)
-//    }
-//    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        picker.dismiss(animated: true, completion: nil)
-//    }
+    func populatedItems(getStoryResponse: [NSDictionary]) {
+        self.items = getStoryResponse
+        self.newsList.reloadData()
+    }
     
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUserOptionsDropDown()
+        storyModel.getStory(populatedItems)
     }
     
     override func didReceiveMemoryWarning() {

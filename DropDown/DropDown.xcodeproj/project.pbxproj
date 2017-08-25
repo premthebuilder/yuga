@@ -42,6 +42,90 @@
 			remoteGlobalIDString = 0AB5D8701D0EEECD002D3A17;
 			remoteInfo = DropDown;
 		};
+		1DB837A51F3EC08A001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB8379E1F3EC08A001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		1DB837A71F3EC08A001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB8379E1F3EC08A001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		1DB837B21F3EC09B001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB837AD1F3EC09B001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		1DB837B41F3EC09B001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB837AD1F3EC09B001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		1DB837BB1F3EC164001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB837B61F3EC164001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		1DB837BD1F3EC164001CD984 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DB837B61F3EC164001CD984 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		1DCB177C1F3EB7F900BEC71E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCB17771F3EB7F700BEC71E /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		1DCB177E1F3EB7F900BEC71E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCB17771F3EB7F700BEC71E /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		1DCB178B1F3EBB4100BEC71E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCB17861F3EBB4100BEC71E /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		1DCB178D1F3EBB4100BEC71E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCB17861F3EBB4100BEC71E /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		1DCB17941F3EBB4800BEC71E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCB178F1F3EBB4800BEC71E /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		1DCB17961F3EBB4800BEC71E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DCB178F1F3EBB4800BEC71E /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +165,12 @@
 		0AB5D8971D0EF15D002D3A17 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0AB5D8A01D0EF173002D3A17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AC1C3391B6B884100A8DC0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Demo/Images.xcassets; sourceTree = "<group>"; };
+		1DB8379E1F3EC08A001CD984 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		1DB837AD1F3EC09B001CD984 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		1DB837B61F3EC164001CD984 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		1DCB17771F3EB7F700BEC71E /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		1DCB17861F3EBB4100BEC71E /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		1DCB178F1F3EBB4800BEC71E /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = ../CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +202,12 @@
 		0A7644061B676C2300BF1A2D = {
 			isa = PBXGroup;
 			children = (
+				1DB837B61F3EC164001CD984 /* CryptoSwift.xcodeproj */,
+				1DB837AD1F3EC09B001CD984 /* CryptoSwift.xcodeproj */,
+				1DB8379E1F3EC08A001CD984 /* CryptoSwift.xcodeproj */,
+				1DCB178F1F3EBB4800BEC71E /* CryptoSwift.xcodeproj */,
+				1DCB17861F3EBB4100BEC71E /* CryptoSwift.xcodeproj */,
+				1DCB17771F3EB7F700BEC71E /* CryptoSwift.xcodeproj */,
 				0AB5D8721D0EEECD002D3A17 /* DropDown */,
 				0A7644111B676C2300BF1A2D /* Demo */,
 				0AC1C3391B6B884100A8DC0D /* Images.xcassets */,
@@ -207,6 +303,60 @@
 				0AB5D8861D0EEEFF002D3A17 /* DropDownCell.swift */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		1DB8379F1F3EC08A001CD984 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DB837A61F3EC08A001CD984 /* CryptoSwift.framework */,
+				1DB837A81F3EC08A001CD984 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DB837AE1F3EC09B001CD984 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DB837B31F3EC09B001CD984 /* CryptoSwift.framework */,
+				1DB837B51F3EC09B001CD984 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DB837B71F3EC164001CD984 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DB837BC1F3EC164001CD984 /* CryptoSwift.framework */,
+				1DB837BE1F3EC164001CD984 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DCB17781F3EB7F700BEC71E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DCB177D1F3EB7F900BEC71E /* CryptoSwift.framework */,
+				1DCB177F1F3EB7F900BEC71E /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DCB17871F3EBB4100BEC71E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DCB178C1F3EBB4100BEC71E /* CryptoSwift.framework */,
+				1DCB178E1F3EBB4100BEC71E /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DCB17901F3EBB4800BEC71E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DCB17951F3EBB4800BEC71E /* CryptoSwift.framework */,
+				1DCB17971F3EBB4800BEC71E /* Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +464,32 @@
 			mainGroup = 0A7644061B676C2300BF1A2D;
 			productRefGroup = 0A7644101B676C2300BF1A2D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1DB837AE1F3EC09B001CD984 /* Products */;
+					ProjectRef = 1DB837AD1F3EC09B001CD984 /* CryptoSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = 1DCB17781F3EB7F700BEC71E /* Products */;
+					ProjectRef = 1DCB17771F3EB7F700BEC71E /* CryptoSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = 1DB837B71F3EC164001CD984 /* Products */;
+					ProjectRef = 1DB837B61F3EC164001CD984 /* CryptoSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = 1DB8379F1F3EC08A001CD984 /* Products */;
+					ProjectRef = 1DB8379E1F3EC08A001CD984 /* CryptoSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = 1DCB17901F3EBB4800BEC71E /* Products */;
+					ProjectRef = 1DCB178F1F3EBB4800BEC71E /* CryptoSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = 1DCB17871F3EBB4100BEC71E /* Products */;
+					ProjectRef = 1DCB17861F3EBB4100BEC71E /* CryptoSwift.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0A76440E1B676C2300BF1A2D /* Demo */,
@@ -322,6 +498,93 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1DB837A61F3EC08A001CD984 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 1DB837A51F3EC08A001CD984 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DB837A81F3EC08A001CD984 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 1DB837A71F3EC08A001CD984 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DB837B31F3EC09B001CD984 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 1DB837B21F3EC09B001CD984 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DB837B51F3EC09B001CD984 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 1DB837B41F3EC09B001CD984 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DB837BC1F3EC164001CD984 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 1DB837BB1F3EC164001CD984 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DB837BE1F3EC164001CD984 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 1DB837BD1F3EC164001CD984 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DCB177D1F3EB7F900BEC71E /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 1DCB177C1F3EB7F900BEC71E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DCB177F1F3EB7F900BEC71E /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 1DCB177E1F3EB7F900BEC71E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DCB178C1F3EBB4100BEC71E /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 1DCB178B1F3EBB4100BEC71E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DCB178E1F3EBB4100BEC71E /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 1DCB178D1F3EBB4100BEC71E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DCB17951F3EBB4800BEC71E /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 1DCB17941F3EBB4800BEC71E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1DCB17971F3EBB4800BEC71E /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 1DCB17961F3EBB4800BEC71E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0A76440D1B676C2300BF1A2D /* Resources */ = {

@@ -36,7 +36,7 @@ class UserModel {
                 DispatchQueue.main.async(execute: loginDone)
             }
         }
-        HttpModel.shared.postRequest(postData, postHeaders, loginEndPoint, onServerResponse)
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: loginEndPoint, onComplete: onServerResponse)
         
     }
     
@@ -53,7 +53,7 @@ class UserModel {
         func onServerResponse(_ serverResponse : NSDictionary){
             login(userName, password, signUpDone)
         }
-        HttpModel.shared.postRequest(postData, postHeaders, registerEndPoint, onServerResponse)
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: registerEndPoint, onComplete: onServerResponse)
         
     }
     

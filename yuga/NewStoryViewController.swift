@@ -18,14 +18,13 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func createStory(_ sender: UIButton) {
         storyModel.createStory(storyTitle.text!, storyContent.text, uploadImage)
     }
-    func uploadImage() {
-        itemModel.uploadImage(imageView.image!)
+    func uploadImage(_ storyId: Int) {
+        itemModel.uploadImage(storyId, imageView.image!)
     }
     @IBOutlet weak var imageView: UIImageView!
     var imageToAdd: UIImage?
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         if (imageView.image == nil) {
             let imagePickerController = UIImagePickerController()
             imagePickerController.delegate = self
@@ -52,6 +51,7 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
                 topController.present(actionSheet, animated: true, completion: nil)
             }
         }
+        super.viewDidAppear(animated)
     }
         
     override func viewDidLoad() {

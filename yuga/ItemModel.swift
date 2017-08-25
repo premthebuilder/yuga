@@ -8,35 +8,64 @@
 
 import Foundation
 import UIKit
+import CryptoSwift
 
 class ItemModel {
     
-    let uploadSessionUrlEndPoint = "upload_session_url"
+    let uploadSessionUrlEndPoint = "upload_session_url/"
+    let createitemEndPoint = "create/item/"
     
-    func getSessionUrlToUploadItem(_ toStory: Int, _ image: UIImage, _ onComplete: @escaping ((UIImage, String)->Void)) {
+    private func getSessionUrlToUploadItem(_ toStory: Int, _ image: UIImage,_ someData:Data, _ checksumHex: String, _ onComplete: @escaping ((UIImage, Data, NSDictionary, Int)->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
-        
-        func onServerResponse(_ serverResponse : NSDictionary){
-            print(serverResponse)
-            onComplete(image, serverResponse.value(forKey: "upload_session_url") as! String)
+        let postData: NSDictionary = NSMutableDictionary()
+        postData.setValue(checksumHex, forKey: "md5")
+        func onServerResponse(_ serverResponse : Any?){
+            let decodedResponse = serverResponse as! NSDictionary
+            onComplete(image, someData, decodedResponse.value(forKey: "upload_session_url") as! NSDictionary, toStory)
         }
-        
-        HttpModel.shared.getRequest(postHeaders, uploadSessionUrlEndPoint, onServerResponse)
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: uploadSessionUrlEndPoint, onComplete: onServerResponse)
     }
     
-    private func uploadImageUsingSessionUrl(_ image: UIImage, uploadSessionUrl: String) {
+    private func uploadImageUsingSessionUrl(_ image: UIImage, _ someData: Data, uploadSessionUrl: NSDictionary, toStory: Int) {
+        let putUrl = uploadSessionUrl.value(forKey: "baseUrl")
+        let queryParams = uploadSessionUrl.value(forKey: "queryParams")
+        let putHeaders = uploadSessionUrl.value(forKey: "headers")
         var imageData = UIImageJPEGRepresentation(image, 0.9)
-        let putHeaders: NSDictionary = NSMutableDictionary()
+        func onServerResponse(_ serverResponse : NSDictionary){
+            print(serverResponse)
+            createItem(imageUploadResponse: serverResponse, storyId: toStory)
+        }
+        HttpModel.shared.putRequest(someData, putHeaders as! NSDictionary, queryParams as! NSDictionary, putUrl as! String, onServerResponse)
+    }
+    
+    
+    func uploadImage(_ storyId: Int, _ image: UIImage) {
+        if let jpegData = UIImageJPEGRepresentation(image, 0.9) {
+//            let someText = "Hello World!"
+//            let someData = someText.data(using: .utf8)
+            let checksum = jpegData.md5().bytes.toBase64()
+//            let checksumHex = checksum?.toHexString()
+//            let checksumHex = someText.md5()
+            getSessionUrlToUploadItem(storyId, image, jpegData, checksum!, uploadImageUsingSessionUrl)
+        }
+        
+    }
+    
+    private func createItem(imageUploadResponse: NSDictionary, storyId: Int) {
         func onServerResponse(_ serverResponse : NSDictionary){
             print(serverResponse)
         }
-        HttpModel.shared.putRequest(imageData!, putHeaders, uploadSessionUrl, onServerResponse)
+        let postData: NSDictionary = NSMutableDictionary()
+        let postHeaders: NSDictionary = NSMutableDictionary()
+        postData.setValue(String(storyId), forKey: "story")
+        postData.setValue(imageUploadResponse.value(forKey: "id"), forKey: "name")
+        postData.setValue(imageUploadResponse.value(forKey: "bucket"), forKey: "description")
+        postData.setValue(imageUploadResponse.value(forKey: "mediaLink"), forKey: "source_url")
+        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createitemEndPoint, onComplete: onServerResponse)
     }
-    
-    func uploadImage(_ image: UIImage) {
-        getSessionUrlToUploadItem(1, image, uploadImageUsingSessionUrl)
-    }
-//    func uploadItem(_ toStory: Int) {
-//        print(getSessionUrlToUploadItem(<#T##toStory: Int##Int#>))
-//    }
+    //func uploadItem(_ toStory: Int) {
+    //    print(getSessionUrlToUploadItem(<#T##toStory: Int##Int#>))
+    //}
 }
