@@ -19,6 +19,7 @@
     @IBOutlet weak var newsList: UICollectionView!
     var userModel: UserModel!
     let storyModel = StoryModel()
+    let itemModel = ItemModel()
     
     
     //MARK: - DropDowns
@@ -52,6 +53,12 @@
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         let currentItem = self.items[indexPath.item]
+        
+        if let storyItems = currentItem.value(forKey: "items") as? [NSDictionary] {
+            let objectUrl = storyItems.first?.value(forKey: "source_url")
+            if (objectUrl != nil) {itemModel.getImage(objectUrl as! String, cell.storyImage)}
+        }
+        
         cell.storyText.text = currentItem.value(forKey: "text") as? String
         cell.storyTitle.text = currentItem.value(forKey: "title") as? String
         cell.backgroundColor = UIColor.cyan // make cell more visible in our example project

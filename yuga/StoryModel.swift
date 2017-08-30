@@ -36,13 +36,16 @@ class StoryModel {
         let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
-        func onServerResponse(_ serverResponse : Any?){
-            let decodedResponse = serverResponse as! [NSDictionary]
-            print(decodedResponse)
-            
-            print("Congrats, you got all the stories")
-            //onComplete(serverResponse.value(forKey: "id") as! Int)
+        func onServerResponse(_ serverResponse : Data){
+            let decodedResponse: Any?
+            do {
+                decodedResponse = try JSONSerialization.jsonObject(with: serverResponse, options: [])
+                onComplete(decodedResponse as! [NSDictionary])
+            }
+            catch {
+                return
+            }
         }
-        HttpModel.shared.getRequest(postHeaders, getStoryEndPoint, onServerResponse)
+        HttpModel.shared.getRequest(postHeaders, getStoryEndPoint, "", NSMutableDictionary(), onServerResponse)
     }
 }
