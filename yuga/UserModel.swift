@@ -31,6 +31,7 @@ class UserModel {
                 self.loginSession = sessionData
 
                 let preferences = UserDefaults.standard
+                print("session data" + sessionData)
                 preferences.set(sessionData, forKey: "session")
                 
                 DispatchQueue.main.async(execute: loginDone)

@@ -9,9 +9,19 @@
 import UIKit
 
 class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
+    var storyDict: NSDictionary = [:]
     let storyModel = StoryModel()
     let itemModel = ItemModel()
+    
+    // Nav bar Items
+    func setupNavBar() {
+        let addMoreIcon = UIImage(named: "icons8-Plus Math-30")
+        let addMore = UIBarButtonItem(image: addMoreIcon, style: UIBarButtonItemStyle.plain, target: self, action: #selector(onAddMore))
+        let toolbarItems = [addMore]
+        self.navigationItem.rightBarButtonItems = toolbarItems
+    }
+    
     
     @IBOutlet weak var storyTitle: UITextField!
     @IBOutlet weak var storyContent: UITextView!
@@ -24,7 +34,28 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var imageView: UIImageView!
     var imageToAdd: UIImage?
     
-    override func viewDidAppear(_ animated: Bool) {
+    @IBOutlet weak var approveButton: UIButton!
+    
+    @IBAction func onApproveButton(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var flagButton: UIButton!
+    
+    @IBAction func onFlagButton(_ sender: UIButton) {
+    }
+    
+    func onAddMore(_ sender: UIBarButtonItem!) {
+        
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    
+    func pickImage() {
         if (imageView.image == nil) {
             let imagePickerController = UIImagePickerController()
             imagePickerController.delegate = self
@@ -51,13 +82,38 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
                 topController.present(actionSheet, animated: true, completion: nil)
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false 
+        
+        view.addGestureRecognizer(tap)
+        let storyIdStr = self.storyDict.value(forKey: "id")
+        if ((storyIdStr) != nil) {
+            storyModel.getStory(storyId: storyIdStr as! String, onGetStory)
+            self.setupNavBar()
+        }
+        else{
+            pickImage()
+        }
     }
-
+    
+    func onGetStory(response: NSDictionary) {
+        self.storyTitle.text = response.value(forKey: "title") as! String
+        self.storyContent.text = response.value(forKey: "text") as! String
+        if let storyItems = response.value(forKey: "items") as? [NSDictionary] {
+            let objectUrl = storyItems.first?.value(forKey: "source_url")
+            if (objectUrl != nil) {itemModel.getImage(String(objectUrl as! Int), self.imageView)}
+        }
+    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.delegate = self
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -77,15 +133,15 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

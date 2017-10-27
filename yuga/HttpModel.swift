@@ -10,7 +10,7 @@ import Foundation
 
 class HttpModel {
     
-    static let shared = HttpModel(baseUrl: URL(string: "http://127.0.0.1:8000/")!)
+    static let shared = HttpModel(baseUrl: URL(string: "http://192.168.86.170:8000/")!)
     
     private init(baseUrl: URL){
         self.baseUrl = baseUrl;
@@ -31,6 +31,43 @@ class HttpModel {
         }
         
         request.allHTTPHeaderFields = postHeaders as? [String : String]
+        request.httpBody = paramString.data(using: String.Encoding.utf8)
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {
+            (data, response, error) in
+            guard let _:Data = data, let _:URLResponse = response  , error == nil else {
+                return}
+            let json: Any?
+            do {
+                json = try JSONSerialization.jsonObject(with: data!, options: [])
+            }
+            catch {
+                return
+            }
+            var serverResponse = json as? NSDictionary
+            DispatchQueue.main.async{
+                for (key, value) in serverResponse!{
+                    callbackParams.setValue(value, forKey: key as! String)
+                }
+                onComplete(callbackParams)
+            }
+        })
+        task.resume()
+    }
+    
+    func patchRequest(patchData: NSDictionary, patchHeaders: NSDictionary, endPoint: String,
+                     onComplete: @escaping ((NSDictionary)->Void), callbackParams: NSDictionary = NSMutableDictionary()) {
+        let url:URL = baseUrl.appendingPathComponent(endPoint)
+        let session = URLSession.shared
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "POST"
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+        var paramString = ""
+        for (key, value) in patchData{
+            paramString = paramString + (key as! String) + "=" + (value as! String) + "&"
+        }
+        
+        request.allHTTPHeaderFields = patchHeaders as? [String : String]
         request.httpBody = paramString.data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {

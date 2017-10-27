@@ -11,7 +11,10 @@ import Foundation
 class StoryModel {
     
     let createStoryEndPoint = "create/story/"
-    let getStoryEndPoint = "view/story/all/"
+    let getAllStoryEndPoint = "view/story/all/"
+    let getStoryEndPoint = "view/story/"
+    let updateStoryEndPoint = "update/story/"
+    let searchStoryEndPoint = "storys/?search="
     let itemModel = ItemModel()
     
     func createStory(_ title: String, _ content: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
@@ -31,7 +34,11 @@ class StoryModel {
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createStoryEndPoint, onComplete: onServerResponse)
     }
     
-    func getStory(_ onComplete:@escaping ((_ getStoryResponse: [NSDictionary])->Void)) {
+    func updateStory(updateParams: NSDictionary, storyId: Int) {
+        
+    }
+    
+    func getAllStories(_ onComplete:@escaping ((_ getAllStoriesResponse: [NSDictionary])->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
         let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
@@ -46,6 +53,45 @@ class StoryModel {
                 return
             }
         }
-        HttpModel.shared.getRequest(postHeaders, getStoryEndPoint, "", NSMutableDictionary(), onServerResponse)
+        HttpModel.shared.getRequest(postHeaders, getAllStoryEndPoint, "", NSMutableDictionary(), onServerResponse)
+    }
+    
+    func getStory(storyId: String, _ onComplete:@escaping ((_ getStoryResponse: NSDictionary)-> Void)) {
+        var url = getStoryEndPoint + storyId + "/"
+        let postHeaders: NSDictionary = NSMutableDictionary()
+        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+        
+        func onServerResponse(_ serverResponse : Data){
+            let decodedResponse: Any?
+            do {
+                decodedResponse = try JSONSerialization.jsonObject(with: serverResponse, options: [])
+                onComplete(decodedResponse as! NSDictionary)
+            }
+            catch {
+                return
+            }
+        }
+        HttpModel.shared.getRequest(postHeaders, url, "", NSMutableDictionary(), onServerResponse)
+    }
+    
+    func searchStories(searchString:String, _ onComplete:@escaping ((_ getAllStoriesResponse: [NSDictionary])->Void)) {
+        let postHeaders: NSDictionary = NSMutableDictionary()
+        let queryParams: NSDictionary = NSMutableDictionary()
+        queryParams.setValue(searchString, forKey: "search")
+        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+        
+        func onServerResponse(_ serverResponse : Data){
+            let decodedResponse: Any?
+            do {
+                decodedResponse = try JSONSerialization.jsonObject(with: serverResponse, options: [])
+                onComplete(decodedResponse as! [NSDictionary])
+            }
+            catch {
+                return
+            }
+        }
+        HttpModel.shared.getRequest(postHeaders, getAllStoryEndPoint, "", queryParams, onServerResponse)
     }
 }

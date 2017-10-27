@@ -25,8 +25,11 @@ class LoginViewController: UIViewController {
     func loginDone() {
         print("Yay! I am in.")
         let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "mainViewController") as! MainViewController
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let navigationController = UINavigationController(rootViewController: mainViewController)
         mainViewController.userModel = self.userModel
-        self.present(mainViewController, animated:true, completion:nil)
+//        appDelegate.window?.rootViewController = mainViewController
+        self.present(navigationController, animated:true, completion:nil)
         
     }
     
