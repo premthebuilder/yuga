@@ -10,7 +10,7 @@ import UIKit
 
 class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var storyDict: NSDictionary = [:]
+    var storyDict: NSMutableDictionary = [:]
     let storyModel = StoryModel()
     let itemModel = ItemModel()
     
@@ -27,6 +27,7 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var storyContent: UITextView!
     @IBAction func createStory(_ sender: UIButton) {
         storyModel.createStory(storyTitle.text!, storyContent.text, uploadImage)
+        _ = navigationController?.popViewController(animated: true)
     }
     func uploadImage(_ storyId: Int) {
         itemModel.uploadImage(storyId, imageView.image!)
@@ -37,6 +38,10 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var approveButton: UIButton!
     
     @IBAction func onApproveButton(_ sender: UIButton) {
+        func onApproveStoryReponse(story: NSDictionary){
+            storyDict.setValue(story.value(forKey: "approvals") as! NSArray, forKey: "approvals")
+        }
+        storyModel.approveStory(storyId: self.storyDict.value(forKey: "id") as! Int, onComplete: onApproveStoryReponse)
     }
     
     @IBOutlet weak var flagButton: UIButton!
@@ -98,7 +103,7 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
         view.addGestureRecognizer(tap)
         let storyIdStr = self.storyDict.value(forKey: "id")
         if ((storyIdStr) != nil) {
-            storyModel.getStory(storyId: storyIdStr as! String, onGetStory)
+            storyModel.getStory(storyId: String(storyIdStr as! Int), onGetStory)
             self.setupNavBar()
         }
         else{
@@ -111,8 +116,9 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
         self.storyContent.text = response.value(forKey: "text") as! String
         if let storyItems = response.value(forKey: "items") as? [NSDictionary] {
             let objectUrl = storyItems.first?.value(forKey: "source_url")
-            if (objectUrl != nil) {itemModel.getImage(String(objectUrl as! Int), self.imageView)}
+            if (objectUrl != nil) {itemModel.getImage(objectUrl as! String, self.imageView)}
         }
+        self.approveButton.setTitle(String((response.value(forKey: "approvals") as! NSArray).count), for: .normal)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.delegate = self

@@ -69,7 +69,7 @@
     }
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items : [NSDictionary] = [["text":"test text", "title":"test title"]]
+    var items : [NSMutableDictionary] = [["text":"test text", "title":"test title"]]
 
     // MARK: - UICollectionViewDataSource protocol
     
@@ -141,7 +141,7 @@
 
     }
     
-    func populatedItems(getStoryResponse: [NSDictionary]) {
+    func populatedItems(getStoryResponse: [NSMutableDictionary]) {
         self.items = getStoryResponse
         self.newsList.reloadData()
     }
@@ -181,6 +181,7 @@
         super.viewWillAppear(animated)
         setupUserOptionsDropDown(anchorView: self.navigationItem.rightBarButtonItems![0])
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        storyModel.getAllStories(populatedItems)
     }
     
     override func didReceiveMemoryWarning() {
@@ -190,7 +191,7 @@
     
     
     /*
-     // MARK: - Navigation
+     // MARK: - Navigationid
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

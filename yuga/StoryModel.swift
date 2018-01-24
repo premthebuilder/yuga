@@ -13,8 +13,9 @@ class StoryModel {
     let createStoryEndPoint = "create/story/"
     let getAllStoryEndPoint = "view/story/all/"
     let getStoryEndPoint = "view/story/"
-    let updateStoryEndPoint = "update/story/"
+    let updateStoryBaseEndPoint = "update/story/"
     let searchStoryEndPoint = "storys/?search="
+    let approveStoryEndPoint = "approve_story/"
     let itemModel = ItemModel()
     
     func createStory(_ title: String, _ content: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
@@ -34,11 +35,38 @@ class StoryModel {
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createStoryEndPoint, onComplete: onServerResponse)
     }
     
-    func updateStory(updateParams: NSDictionary, storyId: Int) {
-        
+    func updateStory(updateParams: NSDictionary, storyId: Int, onComplete:@escaping ((_ updateStoryResponse: NSDictionary)->Void)) {
+        let updateStoryUrl = updateStoryBaseEndPoint + String(storyId) + "/"
+        let postHeaders: NSDictionary = NSMutableDictionary()
+        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+
+        func onGetStory(getStoryResponse: NSDictionary){
+            let mergedParams: NSDictionary = NSMutableDictionary()
+            for (key, value) in updateParams {
+                switch key as! String{
+                case "approvedBy":
+                    let approvals = getStoryResponse.value(forKey: "approvals") as! NSArray
+                    approvals.adding(value as! Int)
+                    mergedParams.setValue(approvals, forKey: "approvals")
+                default:
+                    print("No matching key Story parameter found for: " + (key as! String))
+                }
+            }
+            HttpModel.shared.postRequest(postData: mergedParams, postHeaders: postHeaders, endPoint: updateStoryUrl, onComplete: onComplete)
+        }
     }
     
-    func getAllStories(_ onComplete:@escaping ((_ getAllStoriesResponse: [NSDictionary])->Void)) {
+    func approveStory(storyId: Int, onComplete:@escaping ((_ approveStoryResponse: NSDictionary)->Void)){
+        let postData: NSDictionary = NSMutableDictionary()
+        let postHeaders: NSDictionary = NSMutableDictionary()
+        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+        postData.setValue(storyId, forKey: "story_id")
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: approveStoryEndPoint, onComplete: onComplete)
+    }
+    
+    func getAllStories(_ onComplete:@escaping ((_ getAllStoriesResponse: [NSMutableDictionary])->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
         let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
@@ -47,7 +75,7 @@ class StoryModel {
             let decodedResponse: Any?
             do {
                 decodedResponse = try JSONSerialization.jsonObject(with: serverResponse, options: [])
-                onComplete(decodedResponse as! [NSDictionary])
+                onComplete(decodedResponse as! [NSMutableDictionary])
             }
             catch {
                 return
@@ -75,7 +103,7 @@ class StoryModel {
         HttpModel.shared.getRequest(postHeaders, url, "", NSMutableDictionary(), onServerResponse)
     }
     
-    func searchStories(searchString:String, _ onComplete:@escaping ((_ getAllStoriesResponse: [NSDictionary])->Void)) {
+    func searchStories(searchString:String, _ onComplete:@escaping ((_ getAllStoriesResponse: [NSMutableDictionary])->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
         let queryParams: NSDictionary = NSMutableDictionary()
         queryParams.setValue(searchString, forKey: "search")
@@ -86,7 +114,7 @@ class StoryModel {
             let decodedResponse: Any?
             do {
                 decodedResponse = try JSONSerialization.jsonObject(with: serverResponse, options: [])
-                onComplete(decodedResponse as! [NSDictionary])
+                onComplete(decodedResponse as! [NSMutableDictionary])
             }
             catch {
                 return

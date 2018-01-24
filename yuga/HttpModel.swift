@@ -27,7 +27,13 @@ class HttpModel {
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         var paramString = ""
         for (key, value) in postData{
-            paramString = paramString + (key as! String) + "=" + (value as! String) + "&"
+            if ((value as? String) != nil){
+                paramString = paramString + (key as! String) + "=" + (value as! String) + "&"
+            }
+            else{
+                paramString = paramString + (key as! String) + "=" + String(value as! Int) + "&"
+            }
+            
         }
         
         request.allHTTPHeaderFields = postHeaders as? [String : String]
