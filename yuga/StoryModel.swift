@@ -11,6 +11,7 @@ import Foundation
 class StoryModel {
     
     let createStoryEndPoint = "create/story/"
+    let createTagsEndPoint = "create/tags/"
     let getAllStoryEndPoint = "view/story/all/"
     let getStoryEndPoint = "view/story/"
     let updateStoryBaseEndPoint = "update/story/"
@@ -18,12 +19,13 @@ class StoryModel {
     let approveStoryEndPoint = "approve_story/"
     let itemModel = ItemModel()
     
-    func createStory(_ title: String, _ content: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
+    func createStory(_ title: String, _ content: String, _ tags: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
         let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
-        
+        let tagsArr = tags.split(separator: ",")
         postData.setValue(title, forKey: "title")
         postData.setValue(content, forKey: "text")
+        postData.setValue(tagsArr, forKey: "tags")
         let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
@@ -55,6 +57,20 @@ class StoryModel {
             }
             HttpModel.shared.postRequest(postData: mergedParams, postHeaders: postHeaders, endPoint: updateStoryUrl, onComplete: onComplete)
         }
+    }
+    
+    func createTags(tagsArray: NSArray, _ onComplete:@escaping ((_ tagNames: NSArray)->Void) ){
+        let postData: NSDictionary = NSMutableDictionary()
+        let postHeaders: NSDictionary = NSMutableDictionary()
+        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+        
+        func onServerResponse(_ serverResponse : NSDictionary){
+            print(serverResponse)
+            print("Congrats, you have created tags!")
+//            onComplete(serverResponse.value(forKey: "id") as! Int)
+        }
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createTagsEndPoint, onComplete: onServerResponse)
     }
     
     func approveStory(storyId: Int, onComplete:@escaping ((_ approveStoryResponse: NSDictionary)->Void)){

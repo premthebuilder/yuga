@@ -69,7 +69,7 @@
     }
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items : [NSMutableDictionary] = [["text":"test text", "title":"test title"]]
+    var items = [AnyObject]()
 
     // MARK: - UICollectionViewDataSource protocol
     
@@ -91,7 +91,7 @@
             let objectUrl = storyItems.first?.value(forKey: "source_url")
             if (objectUrl != nil) {itemModel.getImage(objectUrl as! String, cell.storyImage)}
         }
-        
+
         cell.storyText.text = currentItem.value(forKey: "text") as? String
         cell.storyTitle.text = currentItem.value(forKey: "title") as? String
         cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
@@ -104,7 +104,7 @@
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         let newStoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "newStoryViewController") as? NewStoryViewController
-        newStoryViewController?.storyDict = self.items[indexPath.item]
+        newStoryViewController?.storyDict = self.items[indexPath.item] as! NSDictionary
         self.navigationController?.pushViewController(newStoryViewController!, animated: true)
     }
     
@@ -163,7 +163,7 @@
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
-        storyModel.getAllStories(populatedItems)
+//        storyModel.getAllStories(self.populatedItems)
         
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
@@ -178,10 +178,11 @@
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.storyModel.getAllStories(self.populatedItems)
         super.viewWillAppear(animated)
         setupUserOptionsDropDown(anchorView: self.navigationItem.rightBarButtonItems![0])
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        storyModel.getAllStories(populatedItems)
+        
     }
     
     override func didReceiveMemoryWarning() {

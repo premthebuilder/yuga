@@ -10,7 +10,7 @@ import UIKit
 
 class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var storyDict: NSMutableDictionary = [:]
+    var storyDict: NSDictionary = [:]
     let storyModel = StoryModel()
     let itemModel = ItemModel()
     
@@ -25,8 +25,13 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBOutlet weak var storyTitle: UITextField!
     @IBOutlet weak var storyContent: UITextView!
+    @IBOutlet weak var storyTags: UITextField!
     @IBAction func createStory(_ sender: UIButton) {
-        storyModel.createStory(storyTitle.text!, storyContent.text, uploadImage)
+        let tagsStr = storyTags.text!
+        if (!tagsStr.isEmpty){
+            let tagsArr = tagsStr.split(separator: ",")
+        }
+        storyModel.createStory(storyTitle.text!, storyContent.text, storyTags.text!, uploadImage)
         _ = navigationController?.popViewController(animated: true)
     }
     func uploadImage(_ storyId: Int) {

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D28BC211F000CD900E82932 /* camera_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D28BC201F000CD900E82932 /* camera_icon.png */; };
-		1D28BC251F001DE700E82932 /* camera_icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D28BC241F001DE700E82932 /* camera_icon_small.png */; };
-		1D28BC271F00222000E82932 /* camer_icon_xtrasmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D28BC261F00222000E82932 /* camer_icon_xtrasmall.png */; };
 		1D2A9BD71EDC556B00847CBD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD61EDC556B00847CBD /* MainViewController.swift */; };
 		1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */; };
 		1D2E83DE1F8DC51100014063 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2E83DB1F8DC50100014063 /* CryptoSwift.framework */; };
@@ -30,15 +27,6 @@
 		1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C141EC8B8AC00E05994 /* YugaClient.swift */; };
 		1DD61C181EC8C67E00E05994 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61C171EC8C67E00E05994 /* Settings.plist */; };
 		1DFB78A91EF37FBA001D167E /* HttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB78A81EF37FBA001D167E /* HttpModel.swift */; };
-		1DFC42EC1F93B6A500D2DEC5 /* icons8-Plus Math-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC42E81F93B6A500D2DEC5 /* icons8-Plus Math-30.png */; };
-		1DFC42EE1F9D615E00D2DEC5 /* icons8-Approval-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC42ED1F9D615E00D2DEC5 /* icons8-Approval-30.png */; };
-		1DFC42F01F9D618B00D2DEC5 /* icons8-Disclaimer-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC42EF1F9D618B00D2DEC5 /* icons8-Disclaimer-30.png */; };
-		1DFC42F21F9D63F600D2DEC5 /* icons8-Foul-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC42F11F9D63F600D2DEC5 /* icons8-Foul-30.png */; };
-		1DFE084A1F70B7D80033100A /* icons8-Search-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFE08491F70B7D80033100A /* icons8-Search-40.png */; };
-		1DFE084F1F70B8670033100A /* icons8-Search-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFE084E1F70B8670033100A /* icons8-Search-48.png */; };
-		1DFE08511F70B8ED0033100A /* icons8-Search-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFE08501F70B8ED0033100A /* icons8-Search-30.png */; };
-		1DFE08531F70B9A60033100A /* icons8-User-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFE08521F70B9A60033100A /* icons8-User-30.png */; };
-		1DFE08551F70B9D60033100A /* icons8-User-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFE08541F70B9D60033100A /* icons8-User-40.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,9 +118,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1D28BC201F000CD900E82932 /* camera_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon.png; path = ../../../Downloads/camera_icon.png; sourceTree = "<group>"; };
-		1D28BC241F001DE700E82932 /* camera_icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon_small.png; path = ../../../Downloads/camera_icon_small.png; sourceTree = "<group>"; };
-		1D28BC261F00222000E82932 /* camer_icon_xtrasmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camer_icon_xtrasmall.png; path = ../../../Downloads/camer_icon_xtrasmall.png; sourceTree = "<group>"; };
 		1D2A9BD61EDC556B00847CBD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1D2E83D51F8DC50100014063 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "CryptoSwift-swift32/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
@@ -158,15 +143,6 @@
 		1DD61C141EC8B8AC00E05994 /* YugaClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YugaClient.swift; sourceTree = "<group>"; };
 		1DD61C171EC8C67E00E05994 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		1DFB78A81EF37FBA001D167E /* HttpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpModel.swift; sourceTree = "<group>"; };
-		1DFC42E81F93B6A500D2DEC5 /* icons8-Plus Math-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Plus Math-30.png"; sourceTree = "<group>"; };
-		1DFC42ED1F9D615E00D2DEC5 /* icons8-Approval-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Approval-30.png"; path = "../../../Downloads/icons8-Approval-30.png"; sourceTree = "<group>"; };
-		1DFC42EF1F9D618B00D2DEC5 /* icons8-Disclaimer-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Disclaimer-30.png"; path = "../../../Downloads/icons8-Disclaimer-30.png"; sourceTree = "<group>"; };
-		1DFC42F11F9D63F600D2DEC5 /* icons8-Foul-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Foul-30.png"; path = "../../../Downloads/icons8-Foul-30.png"; sourceTree = "<group>"; };
-		1DFE08491F70B7D80033100A /* icons8-Search-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Search-40.png"; path = "../../../Downloads/icons8-Search-40.png"; sourceTree = "<group>"; };
-		1DFE084E1F70B8670033100A /* icons8-Search-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Search-48.png"; path = "../../../Downloads/icons8-Search-48.png"; sourceTree = "<group>"; };
-		1DFE08501F70B8ED0033100A /* icons8-Search-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Search-30.png"; path = "../../../Downloads/icons8-Search-30.png"; sourceTree = "<group>"; };
-		1DFE08521F70B9A60033100A /* icons8-User-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-User-30.png"; path = "../../../Downloads/icons8-User-30.png"; sourceTree = "<group>"; };
-		1DFE08541F70B9D60033100A /* icons8-User-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-User-40.png"; path = "../../../Downloads/icons8-User-40.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,17 +182,6 @@
 		1D28BC1F1F000BA100E82932 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1DFC42F11F9D63F600D2DEC5 /* icons8-Foul-30.png */,
-				1DFC42EF1F9D618B00D2DEC5 /* icons8-Disclaimer-30.png */,
-				1DFC42ED1F9D615E00D2DEC5 /* icons8-Approval-30.png */,
-				1DFC42E81F93B6A500D2DEC5 /* icons8-Plus Math-30.png */,
-				1DFE08541F70B9D60033100A /* icons8-User-40.png */,
-				1DFE08521F70B9A60033100A /* icons8-User-30.png */,
-				1DFE08501F70B8ED0033100A /* icons8-Search-30.png */,
-				1DFE084E1F70B8670033100A /* icons8-Search-48.png */,
-				1DFE08491F70B7D80033100A /* icons8-Search-40.png */,
-				1D28BC261F00222000E82932 /* camer_icon_xtrasmall.png */,
-				1D28BC241F001DE700E82932 /* camera_icon_small.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -323,7 +288,6 @@
 				1DD61BE21EC5453000E05994 /* AppDelegate.swift */,
 				1DD61BEE1EC5453000E05994 /* Info.plist */,
 				1DD61BE91EC5453000E05994 /* Assets.xcassets */,
-				1D28BC201F000CD900E82932 /* camera_icon.png */,
 				1DD61BEB1EC5453000E05994 /* LaunchScreen.storyboard */,
 			);
 			name = SupportingFiles;
@@ -492,19 +456,7 @@
 				1DD61BED1EC5453000E05994 /* LaunchScreen.storyboard in Resources */,
 				1DD61C181EC8C67E00E05994 /* Settings.plist in Resources */,
 				1DD61BEA1EC5453000E05994 /* Assets.xcassets in Resources */,
-				1D28BC271F00222000E82932 /* camer_icon_xtrasmall.png in Resources */,
-				1DFE08511F70B8ED0033100A /* icons8-Search-30.png in Resources */,
-				1DFE084F1F70B8670033100A /* icons8-Search-48.png in Resources */,
-				1D28BC211F000CD900E82932 /* camera_icon.png in Resources */,
-				1DFE08531F70B9A60033100A /* icons8-User-30.png in Resources */,
-				1DFC42EC1F93B6A500D2DEC5 /* icons8-Plus Math-30.png in Resources */,
 				1DD61BE81EC5453000E05994 /* Main.storyboard in Resources */,
-				1D28BC251F001DE700E82932 /* camera_icon_small.png in Resources */,
-				1DFC42EE1F9D615E00D2DEC5 /* icons8-Approval-30.png in Resources */,
-				1DFC42F21F9D63F600D2DEC5 /* icons8-Foul-30.png in Resources */,
-				1DFC42F01F9D618B00D2DEC5 /* icons8-Disclaimer-30.png in Resources */,
-				1DFE08551F70B9D60033100A /* icons8-User-40.png in Resources */,
-				1DFE084A1F70B7D80033100A /* icons8-Search-40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
