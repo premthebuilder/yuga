@@ -142,6 +142,7 @@
                         <outlet property="approveButton" destination="kAz-hG-2wa" id="cWs-Dg-F0W"/>
                         <outlet property="flagButton" destination="5qW-8p-vSc" id="3Rt-Zn-MaX"/>
                         <outlet property="imageView" destination="7W5-Yx-IbR" id="ZmS-pQ-8Yf"/>
+                        <outlet property="post" destination="DBO-At-cAR" id="iA8-jJ-33K"/>
                         <outlet property="storyContent" destination="wj1-j9-ial" id="Tnh-6B-8uc"/>
                         <outlet property="storyTags" destination="AWI-qf-2QF" id="yfd-A3-0UA"/>
                         <outlet property="storyTitle" destination="mF5-2V-mer" id="Lxm-1Q-dS4"/>
@@ -175,7 +176,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="dpc-XX-LB4" userLabel="My Label" customClass="MyCollectionViewCell" customModule="yuga" customModuleProvider="target">
-                                        <rect key="frame" x="1" y="0.0" width="374" height="111"/>
+                                        <rect key="frame" x="0.5" y="0.0" width="374" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="111"/>

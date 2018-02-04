@@ -11,6 +11,7 @@ import Foundation
 class StoryModel {
     
     let createStoryEndPoint = "create/story/"
+    let createStoryTagsEndPoint = "create_storytags/"
     let createTagsEndPoint = "create/tags/"
     let getAllStoryEndPoint = "view/story/all/"
     let getStoryEndPoint = "view/story/"
@@ -19,13 +20,11 @@ class StoryModel {
     let approveStoryEndPoint = "approve_story/"
     let itemModel = ItemModel()
     
-    func createStory(_ title: String, _ content: String, _ tags: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
+    func createStory(_ title: String, _ content: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
         let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
-        let tagsArr = tags.split(separator: ",")
         postData.setValue(title, forKey: "title")
         postData.setValue(content, forKey: "text")
-        postData.setValue(tagsArr, forKey: "tags")
         let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
@@ -35,6 +34,23 @@ class StoryModel {
             onComplete(serverResponse.value(forKey: "id") as! Int)
         }
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createStoryEndPoint, onComplete: onServerResponse)
+    }
+    
+    func createStoryWithTags(_ title: String, _ content: String, _ tags: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
+        let postData: NSDictionary = NSMutableDictionary()
+        let postHeaders: NSDictionary = NSMutableDictionary()
+        postData.setValue(title, forKey: "title")
+        postData.setValue(content, forKey: "text")
+        postData.setValue(tags, forKey: "tags")
+        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+        
+        func onServerResponse(_ serverResponse : NSDictionary){
+            print(serverResponse)
+            print("Congrats, you just posted a story!")
+            onComplete(serverResponse.value(forKey: "id") as! Int)
+        }
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createStoryTagsEndPoint, onComplete: onServerResponse)
     }
     
     func updateStory(updateParams: NSDictionary, storyId: Int, onComplete:@escaping ((_ updateStoryResponse: NSDictionary)->Void)) {

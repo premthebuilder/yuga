@@ -26,12 +26,10 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var storyTitle: UITextField!
     @IBOutlet weak var storyContent: UITextView!
     @IBOutlet weak var storyTags: UITextField!
+    @IBOutlet weak var post: UIButton!
+    
     @IBAction func createStory(_ sender: UIButton) {
-        let tagsStr = storyTags.text!
-        if (!tagsStr.isEmpty){
-            let tagsArr = tagsStr.split(separator: ",")
-        }
-        storyModel.createStory(storyTitle.text!, storyContent.text, storyTags.text!, uploadImage)
+        storyModel.createStoryWithTags(storyTitle.text!, storyContent.text, storyTags.text!, uploadImage)
         _ = navigationController?.popViewController(animated: true)
     }
     func uploadImage(_ storyId: Int) {
@@ -110,6 +108,7 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
         if ((storyIdStr) != nil) {
             storyModel.getStory(storyId: String(storyIdStr as! Int), onGetStory)
             self.setupNavBar()
+            self.post.isHidden = true
         }
         else{
             pickImage()
@@ -119,6 +118,7 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     func onGetStory(response: NSDictionary) {
         self.storyTitle.text = response.value(forKey: "title") as! String
         self.storyContent.text = response.value(forKey: "text") as! String
+        self.storyTags.text = (response.value(forKey: "tags") as! NSArray).componentsJoined(by: ",")
         if let storyItems = response.value(forKey: "items") as? [NSDictionary] {
             let objectUrl = storyItems.first?.value(forKey: "source_url")
             if (objectUrl != nil) {itemModel.getImage(objectUrl as! String, self.imageView)}
