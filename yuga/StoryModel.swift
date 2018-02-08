@@ -36,12 +36,14 @@ class StoryModel {
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createStoryEndPoint, onComplete: onServerResponse)
     }
     
-    func createStoryWithTags(_ title: String, _ content: String, _ tags: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
+    func createStoryWithTags(_ storyDict: NSDictionary, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
         let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
-        postData.setValue(title, forKey: "title")
-        postData.setValue(content, forKey: "text")
-        postData.setValue(tags, forKey: "tags")
+        postData.setValue(storyDict.value(forKey: "title"), forKey: "title")
+        postData.setValue(storyDict.value(forKey: "text"), forKey: "text")
+        postData.setValue(storyDict.value(forKey: "tags"), forKey: "tags")
+        postData.setValue((storyDict.value(forKey: "latitude") as! Double).description, forKey: "latitude")
+        postData.setValue((storyDict.value(forKey: "longitude") as! Double).description, forKey: "longitude")
         let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         

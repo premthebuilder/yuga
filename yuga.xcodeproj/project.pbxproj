@@ -26,6 +26,7 @@
 		1DD61C131EC8AAB400E05994 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C121EC8AAB400E05994 /* UserModel.swift */; };
 		1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C141EC8B8AC00E05994 /* YugaClient.swift */; };
 		1DD61C181EC8C67E00E05994 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61C171EC8C67E00E05994 /* Settings.plist */; };
+		1DDFF7CC202763700046BA44 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DDFF7CB202763700046BA44 /* CoreLocation.framework */; };
 		1DFB78A91EF37FBA001D167E /* HttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB78A81EF37FBA001D167E /* HttpModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		1DD61C121EC8AAB400E05994 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		1DD61C141EC8B8AC00E05994 /* YugaClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YugaClient.swift; sourceTree = "<group>"; };
 		1DD61C171EC8C67E00E05994 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		1DDFF7CB202763700046BA44 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1DFB78A81EF37FBA001D167E /* HttpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDFF7CC202763700046BA44 /* CoreLocation.framework in Frameworks */,
 				1D2E83DE1F8DC51100014063 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,6 +239,7 @@
 				1DD61C011EC5453100E05994 /* yugaUITests */,
 				1DD61BE01EC5453000E05994 /* Products */,
 				1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */,
+				1DDFF7CA2027636F0046BA44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,6 +295,14 @@
 				1DD61BEB1EC5453000E05994 /* LaunchScreen.storyboard */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		1DDFF7CA2027636F0046BA44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DDFF7CB202763700046BA44 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,14 +8,16 @@
  
  import UIKit
  import DropDown
+ import CoreLocation
  
  typealias Proc = () -> ()
  
- class MainViewController: UIViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate,UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate{
     
     //MARK: - Properties
 
-    
+    var location : CLLocation? = nil
+    let locationManager = CLLocationManager()
     @IBOutlet weak var newsList: UICollectionView!
     var userModel: UserModel!
     let storyModel = StoryModel()
@@ -104,7 +106,7 @@
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         let newStoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "newStoryViewController") as? NewStoryViewController
-        newStoryViewController?.storyDict = self.items[indexPath.item] as! NSDictionary
+        newStoryViewController?.storyDict = (self.items[indexPath.item] as! NSDictionary).mutableCopy() as! NSMutableDictionary
         self.navigationController?.pushViewController(newStoryViewController!, animated: true)
     }
     
@@ -129,6 +131,10 @@
     @IBAction func useCamera(_ sender: Any) {
         
         let newStoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "newStoryViewController") as? NewStoryViewController
+        if (self.location != nil){
+            newStoryViewController?.storyDict.setValue(self.location?.coordinate.latitude, forKey: "latitude")
+            newStoryViewController?.storyDict.setValue(self.location?.coordinate.longitude, forKey: "longitude")
+        }
         self.navigationController?.pushViewController(newStoryViewController!, animated: true)
 //        if var topController = UIApplication.shared.keyWindow?.rootViewController {
 //            while let presentedViewController = topController.presentedViewController {
@@ -159,12 +165,27 @@
         
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.location = locations[0]
+    }
+    
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
 //        storyModel.getAllStories(self.populatedItems)
         
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            self.locationManager.startUpdatingLocation()
+        }
         self.searchController.searchResultsUpdater = self
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self

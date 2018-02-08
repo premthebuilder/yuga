@@ -10,7 +10,7 @@ import UIKit
 
 class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var storyDict: NSDictionary = [:]
+    var storyDict: NSMutableDictionary = [:]
     let storyModel = StoryModel()
     let itemModel = ItemModel()
     
@@ -29,7 +29,10 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var post: UIButton!
     
     @IBAction func createStory(_ sender: UIButton) {
-        storyModel.createStoryWithTags(storyTitle.text!, storyContent.text, storyTags.text!, uploadImage)
+        storyDict.setValue(storyTitle.text!, forKey: "title")
+        storyDict.setValue(storyContent.text!, forKey: "text")
+        storyDict.setValue(storyTags.text!, forKey: "tags")
+        storyModel.createStoryWithTags(storyDict, uploadImage)
         _ = navigationController?.popViewController(animated: true)
     }
     func uploadImage(_ storyId: Int) {
