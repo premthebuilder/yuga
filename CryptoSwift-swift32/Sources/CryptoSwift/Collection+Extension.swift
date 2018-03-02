@@ -53,9 +53,9 @@ extension Collection where Self.Iterator.Element == UInt8, Self.Index == Int {
 
     /// Initialize integer from array of bytes. Caution: may be slow!
     @available(*, deprecated: 0.6.0, message: "Dont use it. Too generic to be fast")
-    func toInteger<T: Integer>() -> T where T: ByteConvertible, T: BitshiftOperationsType {
+    func toInteger<T: BinaryInteger>() -> T where T: ByteConvertible, T: BitshiftOperationsType {
         if self.count == 0 {
-            return 0
+            return 0 as! T
         }
 
         let size = MemoryLayout<T>.size
@@ -71,7 +71,7 @@ extension Collection where Self.Iterator.Element == UInt8, Self.Index == Int {
             return T(truncatingBitPattern: UInt64(bytes[0]))
         }
 
-        var result: T = 0
+        var result: T = 0 as! T
         for byte in bytes.reversed() {
             result = result << 8 | T(byte)
         }

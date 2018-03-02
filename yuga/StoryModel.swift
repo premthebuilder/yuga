@@ -10,14 +10,14 @@ import Foundation
 
 class StoryModel {
     
-    let createStoryEndPoint = "create/story/"
-    let createStoryTagsEndPoint = "create_storytags/"
+    let createStoryEndPoint = "api/articles/"
+    let createStoryTagsEndPoint = "api/articles/"
     let createTagsEndPoint = "create/tags/"
-    let getAllStoryEndPoint = "view/story/all/"
-    let getStoryEndPoint = "view/story/"
-    let updateStoryBaseEndPoint = "update/story/"
-    let searchStoryEndPoint = "storys/?search="
-    let approveStoryEndPoint = "approve_story/"
+    let getAllStoryEndPoint = "api/articles/"
+    let getStoryEndPoint = "api/articles/"
+    let updateStoryBaseEndPoint = "api/articles/"
+    let searchStoryEndPoint = "api/articles/?search="
+    let approveStoryEndPoint = "api/approve/"
     let itemModel = ItemModel()
     
     func createStory(_ title: String, _ content: String, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
@@ -25,7 +25,7 @@ class StoryModel {
         let postHeaders: NSDictionary = NSMutableDictionary()
         postData.setValue(title, forKey: "title")
         postData.setValue(content, forKey: "text")
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
         func onServerResponse(_ serverResponse : NSDictionary){
@@ -44,7 +44,7 @@ class StoryModel {
         postData.setValue(storyDict.value(forKey: "tags"), forKey: "tags")
         postData.setValue((storyDict.value(forKey: "latitude") as! Double).description, forKey: "latitude")
         postData.setValue((storyDict.value(forKey: "longitude") as! Double).description, forKey: "longitude")
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
         func onServerResponse(_ serverResponse : NSDictionary){
@@ -56,9 +56,9 @@ class StoryModel {
     }
     
     func updateStory(updateParams: NSDictionary, storyId: Int, onComplete:@escaping ((_ updateStoryResponse: NSDictionary)->Void)) {
-        let updateStoryUrl = updateStoryBaseEndPoint + String(storyId) + "/"
+        let updateStoryUrl = updateStoryBaseEndPoint
         let postHeaders: NSDictionary = NSMutableDictionary()
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
 
         func onGetStory(getStoryResponse: NSDictionary){
@@ -73,6 +73,7 @@ class StoryModel {
                     print("No matching key Story parameter found for: " + (key as! String))
                 }
             }
+            mergedParams.setValue(storyId, forKey: "id")
             HttpModel.shared.postRequest(postData: mergedParams, postHeaders: postHeaders, endPoint: updateStoryUrl, onComplete: onComplete)
         }
     }
@@ -80,7 +81,7 @@ class StoryModel {
     func createTags(tagsArray: NSArray, _ onComplete:@escaping ((_ tagNames: NSArray)->Void) ){
         let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
         func onServerResponse(_ serverResponse : NSDictionary){
@@ -94,15 +95,16 @@ class StoryModel {
     func approveStory(storyId: Int, onComplete:@escaping ((_ approveStoryResponse: NSDictionary)->Void)){
         let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
-        postData.setValue(storyId, forKey: "story_id")
-        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: approveStoryEndPoint, onComplete: onComplete)
+        let approveStoryEndPointFull = approveStoryEndPoint + "/" + storyId + "/"
+//        postData.setValue(storyId, forKey: "story_id")
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: approveStoryEndPointFull, onComplete: onComplete)
     }
     
     func getAllStories(_ onComplete:@escaping ((_ getAllStoriesResponse: [NSMutableDictionary])->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
         func onServerResponse(_ serverResponse : Data){
@@ -121,7 +123,7 @@ class StoryModel {
     func getStory(storyId: String, _ onComplete:@escaping ((_ getStoryResponse: NSDictionary)-> Void)) {
         var url = getStoryEndPoint + storyId + "/"
         let postHeaders: NSDictionary = NSMutableDictionary()
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
         func onServerResponse(_ serverResponse : Data){
@@ -141,7 +143,7 @@ class StoryModel {
         let postHeaders: NSDictionary = NSMutableDictionary()
         let queryParams: NSDictionary = NSMutableDictionary()
         queryParams.setValue(searchString, forKey: "search")
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
         func onServerResponse(_ serverResponse : Data){

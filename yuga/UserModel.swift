@@ -10,8 +10,8 @@ import Foundation
 
 class UserModel {
     
-    let loginEndPoint = "api-token-auth/login/"
-    let registerEndPoint = "register/"
+    let loginEndPoint = "api/users/login"
+    let registerEndPoint = "api/users"
     var loginSession:String = ""
     
     func clearLoginSession() {

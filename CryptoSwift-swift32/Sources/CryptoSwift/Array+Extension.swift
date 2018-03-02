@@ -38,7 +38,7 @@ extension Array {
     }
 }
 
-extension Array where Element: Integer, Element.IntegerLiteralType == UInt8 {
+extension Array where Element: BinaryInteger, Element.IntegerLiteralType == UInt8 {
     
     public init(hex: String) {
         self.init(reserveCapacity: hex.unicodeScalars.lazy.underestimatedCount)

@@ -24,7 +24,7 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     @IBOutlet weak var storyTitle: UITextField!
-    @IBOutlet weak var storyContent: UITextView!
+    @IBOutlet weak var storyContent = Aztec.TextView(defaultFont: Constants.defaultContentFont, defaultMissingImage: Constants.defaultMissingImage)
     @IBOutlet weak var storyTags: UITextField!
     @IBOutlet weak var post: UIButton!
     

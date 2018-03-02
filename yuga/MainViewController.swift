@@ -96,7 +96,7 @@
 
         cell.storyText.text = currentItem.value(forKey: "text") as? String
         cell.storyTitle.text = currentItem.value(forKey: "title") as? String
-        cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+        // make cell more visible in our example project
         return cell
     }
     

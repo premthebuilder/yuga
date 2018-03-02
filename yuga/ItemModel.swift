@@ -8,13 +8,13 @@
 
 import Foundation
 import UIKit
-import CryptoSwift
+//import CryptoSwift
 
 class ItemModel {
     
-    let uploadSessionUrlEndPoint = "upload_session_url/"
-    let downloadSessionUrlEndPoint = "download_session_url/"
-    let createitemEndPoint = "create/item/"
+    let uploadSessionUrlEndPoint = "api/upload_session_url/"
+    let downloadSessionUrlEndPoint = "api/download_session_url/"
+    let createitemEndPoint = "api/create/media/"
     
     private func getSessionUrlToUploadItem(_ toStory: Int, _ image: UIImage,_ someData:Data, _ checksumHex: String, _ onComplete: @escaping ((UIImage, Data, NSDictionary, Int)->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
@@ -94,11 +94,11 @@ class ItemModel {
         let responseUrl: NSURL = imageUploadResponse.value(forKey: "url") as! NSURL
         let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
-        postData.setValue(String(storyId), forKey: "story")
+        postData.setValue(String(storyId), forKey: "article")
         postData.setValue("test", forKey: "name")
         postData.setValue("test", forKey: "description")
         postData.setValue(responseUrl.lastPathComponent!, forKey: "source_url")
-        let authHeaderValue = "JWT " + UserDefaults.standard.string(forKey: "session")!
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createitemEndPoint, onComplete: onServerResponse)
     }

@@ -12,6 +12,7 @@ class HttpModel {
     
 //    static let shared = HttpModel(baseUrl: URL(string: "http://192.168.86.170:8000/")!)
     static let shared = HttpModel(baseUrl: URL(string: "http://localhost:8000/")!)
+//    static let shared = HttpModel(baseUrl: URL(string: "https://yuga-171020.appspot.com/")!)
     
     private init(baseUrl: URL){
         self.baseUrl = baseUrl;

@@ -33,7 +33,7 @@ func integerFrom<T: UnsignedInteger>(_ bits: Array<Bit>) -> T {
     var bitPattern: T = 0
     for idx in bits.indices {
         if bits[idx] == Bit.one {
-            let bit = T(UIntMax(1) << UIntMax(idx))
+            let bit = T(UInt64(1) << UInt64(idx))
             bitPattern = bitPattern | bit
         }
     }
@@ -46,7 +46,7 @@ func integerFrom<T: UnsignedInteger>(_ bits: Array<Bit>) -> T {
 /// - parameter length: length of output array. By default size of value type
 ///
 /// - returns: Array of bytes
-func arrayOfBytes<T: Integer>(value: T, length totalBytes: Int = MemoryLayout<T>.size) -> Array<UInt8> {
+func arrayOfBytes<T: BinaryInteger>(value: T, length totalBytes: Int = MemoryLayout<T>.size) -> Array<UInt8> {
     let valuePointer = UnsafeMutablePointer<T>.allocate(capacity: 1)
     valuePointer.pointee = value
 
