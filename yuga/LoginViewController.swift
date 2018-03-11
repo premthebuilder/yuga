@@ -10,15 +10,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
     let userModel = UserModel()
     
     @IBAction func login(_ sender: UIButton) {
         print("In login")
-        if(userName != nil && password != nil) {
-            userModel.login(userName!.text!, password!.text!, loginDone)
+        if(email != nil && password != nil) {
+            userModel.login(email!.text!, password!.text!, loginDone)
         }
     }
     

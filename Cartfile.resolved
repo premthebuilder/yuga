@@ -1,1 +1,4 @@
+github "Automattic/Gridicons-iOS" "0.8"
+github "krzyzanowskim/CryptoSwift" "0.8.3"
+github "scinfu/SwiftSoup" "1.6.2"
 github "wordpress-mobile/AztecEditor-iOS" "051711e851b56e1d4d569c54524f95705a7ff42d"

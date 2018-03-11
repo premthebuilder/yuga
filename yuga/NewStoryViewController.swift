@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Aztec
 
 class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -24,14 +25,14 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     @IBOutlet weak var storyTitle: UITextField!
-    @IBOutlet weak var storyContent = Aztec.TextView(defaultFont: Constants.defaultContentFont, defaultMissingImage: Constants.defaultMissingImage)
+    @IBOutlet weak var storyContent: UITextField!
     @IBOutlet weak var storyTags: UITextField!
     @IBOutlet weak var post: UIButton!
     
     @IBAction func createStory(_ sender: UIButton) {
         storyDict.setValue(storyTitle.text!, forKey: "title")
         storyDict.setValue(storyContent.text!, forKey: "text")
-        storyDict.setValue(storyTags.text!, forKey: "tags")
+        storyDict.setValue(storyTags.text!.split(separator: ","), forKey: "tagList")
         storyModel.createStoryWithTags(storyDict, uploadImage)
         _ = navigationController?.popViewController(animated: true)
     }
@@ -55,7 +56,7 @@ class NewStoryViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func onFlagButton(_ sender: UIButton) {
     }
     
-    func onAddMore(_ sender: UIBarButtonItem!) {
+    @objc func onAddMore(_ sender: UIBarButtonItem!) {
         
     }
     

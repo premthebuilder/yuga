@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//import CryptoSwift
+import CryptoSwift
 
 class ItemModel {
     
@@ -87,6 +87,24 @@ class ItemModel {
             getSessionUrlToDownloadItem(objectName, imageView, downloadImageUsingSessionUrl)}
     }
     
+    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func downloadImage(_ urlStr: String, _ imageView: UIImageView) {
+        let url = URL(string: urlStr)
+        getDataFromUrl(url: url!) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url?.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                imageView.image = UIImage(data: data)
+            }
+        }
+    }
+    
     private func createItem(imageUploadResponse: NSDictionary, storyId: Int) {
         func onServerResponse(_ serverResponse : NSDictionary){
             print(serverResponse)
@@ -101,6 +119,19 @@ class ItemModel {
         let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createitemEndPoint, onComplete: onServerResponse)
+    }
+    
+    func uploadImageToCloud(_ image: UIImage, _ onComplete: @escaping ((NSDictionary)->Void)) {
+        let uuid = UUID().uuidString
+        let putUrl = "https://www.googleapis.com/upload/storage/v1/b/yuga-171020.appspot.com/o"
+        let queryParams = ["name": uuid + ".jpg"]
+        let putHeaders = ["content-type": "image/jpeg"]
+        var imageData = UIImageJPEGRepresentation(image, 0.9)
+        func onServerResponse(_ serverResponse : NSDictionary){
+            print(serverResponse)
+            onComplete(serverResponse)
+        }
+        HttpModel.shared.postByteRequest(imageData!, putHeaders as! NSDictionary, queryParams as! NSDictionary, putUrl as! String, onServerResponse)
     }
     //func uploadItem(_ toStory: Int) {
     //    print(getSessionUrlToUploadItem(<#T##toStory: Int##Int#>))

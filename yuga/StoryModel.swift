@@ -39,18 +39,16 @@ class StoryModel {
     func createStoryWithTags(_ storyDict: NSDictionary, _ onComplete:@escaping ((_ storyId: Int)->Void) )  {
         let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
-        postData.setValue(storyDict.value(forKey: "title"), forKey: "title")
-        postData.setValue(storyDict.value(forKey: "text"), forKey: "text")
-        postData.setValue(storyDict.value(forKey: "tags"), forKey: "tags")
-        postData.setValue((storyDict.value(forKey: "latitude") as! Double).description, forKey: "latitude")
-        postData.setValue((storyDict.value(forKey: "longitude") as! Double).description, forKey: "longitude")
+        postData.setValue(storyDict, forKey: "article")
         let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         
         func onServerResponse(_ serverResponse : NSDictionary){
             print(serverResponse)
-            print("Congrats, you just posted a story!")
-            onComplete(serverResponse.value(forKey: "id") as! Int)
+            if (serverResponse.value(forKey: "id") != nil){
+                print("Congrats, you just posted a story!")
+                onComplete(serverResponse.value(forKey: "id") as! Int)
+            }
         }
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createStoryTagsEndPoint, onComplete: onServerResponse)
     }
@@ -97,12 +95,12 @@ class StoryModel {
         let postHeaders: NSDictionary = NSMutableDictionary()
         let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
-        let approveStoryEndPointFull = approveStoryEndPoint + "/" + storyId + "/"
+        let approveStoryEndPointFull = approveStoryEndPoint + "/" + String(storyId) + "/"
 //        postData.setValue(storyId, forKey: "story_id")
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: approveStoryEndPointFull, onComplete: onComplete)
     }
     
-    func getAllStories(_ onComplete:@escaping ((_ getAllStoriesResponse: [NSMutableDictionary])->Void)) {
+    func getAllStories(_ onComplete:@escaping ((_ getAllStoriesResponse: NSDictionary)->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
         let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
@@ -111,7 +109,7 @@ class StoryModel {
             let decodedResponse: Any?
             do {
                 decodedResponse = try JSONSerialization.jsonObject(with: serverResponse, options: [])
-                onComplete(decodedResponse as! [NSMutableDictionary])
+                onComplete(decodedResponse as! NSDictionary)
             }
             catch {
                 return
@@ -139,7 +137,7 @@ class StoryModel {
         HttpModel.shared.getRequest(postHeaders, url, "", NSMutableDictionary(), onServerResponse)
     }
     
-    func searchStories(searchString:String, _ onComplete:@escaping ((_ getAllStoriesResponse: [NSMutableDictionary])->Void)) {
+    func searchStories(searchString:String, _ onComplete:@escaping ((_ getAllStoriesResponse: NSDictionary)->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
         let queryParams: NSDictionary = NSMutableDictionary()
         queryParams.setValue(searchString, forKey: "search")
@@ -150,7 +148,7 @@ class StoryModel {
             let decodedResponse: Any?
             do {
                 decodedResponse = try JSONSerialization.jsonObject(with: serverResponse, options: [])
-                onComplete(decodedResponse as! [NSMutableDictionary])
+                onComplete(decodedResponse as! NSDictionary)
             }
             catch {
                 return

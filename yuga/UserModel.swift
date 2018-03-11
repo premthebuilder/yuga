@@ -18,15 +18,17 @@ class UserModel {
         self.loginSession = ""
     }
     
-    func login(_ userName: String, _ password: String, _ loginDone:@escaping (()->Void) ) {
+    func login(_ email: String, _ password: String, _ loginDone:@escaping (()->Void) ) {
         let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
+        let userData: NSDictionary = NSMutableDictionary()
         
-        postData.setValue(userName, forKey: "username")
-        postData.setValue(password, forKey: "password")
+        userData.setValue(email, forKey: "email")
+        userData.setValue(password, forKey: "password")
         
+        postData.setValue(userData, forKey: "user")
         func onServerResponse(_ serverResponse : NSDictionary){
-            if let sessionData = serverResponse["token"] as? String
+            if let sessionData = (serverResponse.value(forKey: "user") as! NSDictionary).value(forKey: "token") as? String
             {
                 self.loginSession = sessionData
 

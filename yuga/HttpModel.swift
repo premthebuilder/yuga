@@ -10,7 +10,7 @@ import Foundation
 
 class HttpModel {
     
-//    static let shared = HttpModel(baseUrl: URL(string: "http://192.168.86.170:8000/")!)
+//    static let shared = HttpModel(baseUrl: URL(string: "http://192.168.86.224:8000/")!)
     static let shared = HttpModel(baseUrl: URL(string: "http://localhost:8000/")!)
 //    static let shared = HttpModel(baseUrl: URL(string: "https://yuga-171020.appspot.com/")!)
     
@@ -27,19 +27,11 @@ class HttpModel {
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "POST"
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
-        var paramString = ""
-        for (key, value) in postData{
-            if ((value as? String) != nil){
-                paramString = paramString + (key as! String) + "=" + (value as! String) + "&"
-            }
-            else{
-                paramString = paramString + (key as! String) + "=" + String(value as! Int) + "&"
-            }
-            
-        }
-        
+        let postBody = try? JSONSerialization.data(withJSONObject: postData, options: [])
+        postHeaders.setValue("application/json", forKey: "Content-Type")
         request.allHTTPHeaderFields = postHeaders as? [String : String]
-        request.httpBody = paramString.data(using: String.Encoding.utf8)
+//        request.httpBody = paramString.data(using: String.Encoding.utf8)
+        request.httpBody = postBody
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
             (data, response, error) in
@@ -61,6 +53,56 @@ class HttpModel {
             }
         })
         task.resume()
+    }
+    
+    func postByteRequest(_ fileData: Data, _ putHeaders: NSDictionary, _ queryParams:NSDictionary, _ uploadUrl: String,
+                    _ onComplete: @escaping ((NSDictionary)->Void)) {
+        if let urlComponents = NSURLComponents(string: uploadUrl),
+            var queryItems = (urlComponents.queryItems ?? []) as? [URLQueryItem] {
+            for qp in queryParams {
+                var s = NSCharacterSet.urlQueryAllowed
+                s.remove(charactersIn: "+&")
+                let paramVal = qp.value as? String
+                //                let escapedParamVal = paramVal?.replacingOccurrences(of: "+", with: "%2B")
+                //                let escapedParamVal = paramVal?.addingPercentEncoding(withAllowedCharacters: s)
+                queryItems.append(URLQueryItem(name: qp.key as! String, value: paramVal))
+            }
+            let cs = CharacterSet(charactersIn: "+").inverted
+            urlComponents.queryItems = queryItems
+            let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
+            let q =  urlComponents.percentEncodedQuery?.addingPercentEncoding(withAllowedCharacters: cs)
+            urlComponents.percentEncodedQuery = q
+            let url = urlComponents.url
+            let request = NSMutableURLRequest(url: url!)
+            request.httpMethod = "POST"
+            //        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+            //            let body = NSMutableData()
+            //            body.append(fileData)
+            let putData = NSData(data: "Hello World!".data(using: String.Encoding.utf8)!)
+            request.httpBody = fileData
+            request.allHTTPHeaderFields = putHeaders as? [String : String]
+            
+            let task = session.dataTask(with: request as URLRequest, completionHandler: {
+                (data, response, errorResponse) in
+                guard let _:Data = data, let _:URLResponse = response, errorResponse == nil else {
+                    return}
+                let httpResponse = response as! HTTPURLResponse
+                let responseUrlComponents = NSURLComponents(string: (httpResponse.url?.absoluteString)!)
+                let httpResponseDict: NSDictionary = NSMutableDictionary()
+                httpResponseDict.setValue(httpResponse.url, forKey: "url")
+                httpResponseDict.setValue(httpResponse.allHeaderFields, forKey: "headers")
+                httpResponseDict.setValue(httpResponse.statusCode, forKey: "status")
+                do{
+                let dataDict = try JSONSerialization.jsonObject(with: data!, options: [])
+                httpResponseDict.setValue(dataDict as! NSDictionary, forKey: "data")
+                }
+                catch{}
+                DispatchQueue.main.async{
+                    onComplete(httpResponseDict)
+                }
+            })
+            task.resume()
+        }
     }
     
     func patchRequest(patchData: NSDictionary, patchHeaders: NSDictionary, endPoint: String,
