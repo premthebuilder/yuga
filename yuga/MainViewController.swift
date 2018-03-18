@@ -30,16 +30,35 @@
 
     func setupUserOptionsDropDown(anchorView: UIBarButtonItem) {
         userOptionsDropDown.anchorView = anchorView
-        userOptionsDropDown.dataSource = ["Logout"]
+        userOptionsDropDown.dataSource = ["Logout", "Profile"]
         userOptionsDropDown.bottomOffset = CGPoint(x: 0, y:(userOptionsDropDown.anchorView?.plainView.bounds.height)!)
         userOptionsDropDown.selectionAction = { [unowned self] (index, item) in
             switch item {
             case "Logout":
                 self.logout()
+            case "Profile":
+                self.profileView()
             default:
                 print("No action defined for " + item)
             }
         }
+    }
+    
+    func profileView(){
+        print("Going to User Profile")
+        
+//        let controller: ProfileViewController
+//        controller = ProfileViewController()
+//        controller.userModel = self.userModel
+        
+        
+        let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+
+        _ = UINavigationController(rootViewController: profileViewController)
+        profileViewController.userModel = self.userModel
+
+        //self.present(navigationController, animated:true, completion:nil)
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     func setupNavBar(){

@@ -41,6 +41,16 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "One"
+        super.viewWillAppear(animated)
+        print("overriding viewwillappear")
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.setHidesBackButton(false, animated: false)
+        self.navigationItem.leftItemsSupplementBackButton = true
+        
+    }
+    
 
     /*
     // MARK: - Navigation

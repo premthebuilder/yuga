@@ -52,6 +52,7 @@ class ItemModel {
     }
     
     func downloadImageUsingSessionUrl(_ imageMeta: NSDictionary) {
+        print(imageMeta)
         let postHeaders: NSDictionary = NSMutableDictionary()
         let downloadSessionUrl: NSDictionary = imageMeta.value(forKey: "download_session_url") as! NSDictionary
         let getUrl = downloadSessionUrl.value(forKey: "baseUrl")

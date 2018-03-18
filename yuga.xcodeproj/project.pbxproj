@@ -50,6 +50,10 @@
 		1DFB1C3C205566DB007C4154 /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFB1C39205566DB007C4154 /* SwiftSoup.framework */; };
 		1DFB1C3D205566DB007C4154 /* SwiftSoup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFB1C39205566DB007C4154 /* SwiftSoup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DFB78A91EF37FBA001D167E /* HttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB78A81EF37FBA001D167E /* HttpModel.swift */; };
+		FF0F35182059DF5100EE0AC8 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F35172059DF5100EE0AC8 /* ProfileModel.swift */; };
+		FF2043ED205DD195009B6591 /* ProfileFollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2043EC205DD195009B6591 /* ProfileFollowersListViewController.swift */; };
+		FF2043F1205DF35F009B6591 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2043F0205DF35F009B6591 /* TestCollectionViewController.swift */; };
+		FF73A76D2058C5CD00D56F8A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF73A76C2058C5CD00D56F8A /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +170,10 @@
 		1DF895FC2050B7AB0026EC10 /* UnknownEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownEditorViewController.swift; sourceTree = "<group>"; };
 		1DFB1C39205566DB007C4154 /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/iOS/SwiftSoup.framework; sourceTree = "<group>"; };
 		1DFB78A81EF37FBA001D167E /* HttpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpModel.swift; sourceTree = "<group>"; };
+		FF0F35172059DF5100EE0AC8 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		FF2043EC205DD195009B6591 /* ProfileFollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFollowersListViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		FF2043F0205DF35F009B6591 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
+		FF73A76C2058C5CD00D56F8A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +240,7 @@
 				1D61B10A1F0B568200235816 /* ItemModel.swift */,
 				1D61B1061F0B4B6400235816 /* StoryModel.swift */,
 				1DFB78A81EF37FBA001D167E /* HttpModel.swift */,
+				FF0F35172059DF5100EE0AC8 /* ProfileModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -243,6 +252,9 @@
 				1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */,
 				1D2A9BD61EDC556B00847CBD /* MainViewController.swift */,
 				1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */,
+				FF73A76C2058C5CD00D56F8A /* ProfileViewController.swift */,
+				FF2043EC205DD195009B6591 /* ProfileFollowersListViewController.swift */,
+				FF2043F0205DF35F009B6591 /* TestCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -541,9 +553,13 @@
 				1DF896002050B7AC0026EC10 /* OptionsTableView.swift in Sources */,
 				1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */,
 				1DA003792050BD98002A3F51 /* HTMLAttachmentRenderer.swift in Sources */,
+				FF2043F1205DF35F009B6591 /* TestCollectionViewController.swift in Sources */,
 				1D70F24E1EF71915000FE96C /* NewStoryViewController.swift in Sources */,
 				1DF895FD2050B7AC0026EC10 /* EditorController.swift in Sources */,
+				FF0F35182059DF5100EE0AC8 /* ProfileModel.swift in Sources */,
 				1DF896012050B7AC0026EC10 /* UnknownEditorViewController.swift in Sources */,
+				FF73A76D2058C5CD00D56F8A /* ProfileViewController.swift in Sources */,
+				FF2043ED205DD195009B6591 /* ProfileFollowersListViewController.swift in Sources */,
 				1DA003852050BDA9002A3F51 /* CaptionShortcodePostProcessor.swift in Sources */,
 				1DA003802050BDA9002A3F51 /* VideoShortcodePostProcessor.swift in Sources */,
 				1DF895FE2050B7AC0026EC10 /* AttachmentDetailsViewController.swift in Sources */,
