@@ -55,6 +55,41 @@ class HttpModel {
         task.resume()
     }
     
+    func deleteRequest(postHeaders: NSDictionary, endPoint: String,
+                     onComplete: @escaping ((NSDictionary)->Void), callbackParams: NSDictionary = NSMutableDictionary()) {
+        let url:URL = baseUrl.appendingPathComponent(endPoint)
+        let session = URLSession.shared
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+        //let postBody = try? JSONSerialization.data(withJSONObject: postData, options: [])
+        postHeaders.setValue("application/json", forKey: "Content-Type")
+        request.allHTTPHeaderFields = postHeaders as? [String : String]
+        //        request.httpBody = paramString.data(using: String.Encoding.utf8)
+        //request.httpBody = postBody
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {
+            (data, response, error) in
+            guard let _:Data = data, let _:URLResponse = response  , error == nil else {
+                return}
+            let json: Any?
+            do {
+                json = try JSONSerialization.jsonObject(with: data!, options: [])
+            }
+            catch {
+                return
+            }
+            var serverResponse = json as? NSDictionary
+            DispatchQueue.main.async{
+                for (key, value) in serverResponse!{
+                    callbackParams.setValue(value, forKey: key as! String)
+                }
+                onComplete(callbackParams)
+            }
+        })
+        task.resume()
+    }
+    
     func postByteRequest(_ fileData: Data, _ putHeaders: NSDictionary, _ queryParams:NSDictionary, _ uploadUrl: String,
                     _ onComplete: @escaping ((NSDictionary)->Void)) {
         if let urlComponents = NSURLComponents(string: uploadUrl),

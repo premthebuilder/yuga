@@ -13,6 +13,8 @@ import CryptoSwift
 class ProfileModel {
     let profileEndPoint = "api/profile/"
     let downloadSessionUrlEndPoint = "api/download_session_url/"
+    let profileFollowEndPoint = "api/profiles/"
+    
     
     func getProfile(_ onComplete:@escaping ((_ getAllProfilesResponse: NSDictionary)->Void)) {
         let postHeaders: NSDictionary = NSMutableDictionary()
@@ -33,42 +35,38 @@ class ProfileModel {
         HttpModel.shared.getRequest(postHeaders, profileEndPoint, "", NSMutableDictionary(), onServerResponse)
     }
     
-    func downloadImageUsingSessionUrl(_ imageMeta: NSDictionary) {
-        print(imageMeta)
+    func unFollowUser(username : String, _ onComplete:@escaping ((_ getAllProfilesResponse: NSDictionary)->Void)) {
+        //let postData: NSDictionary = NSMutableDictionary()
         let postHeaders: NSDictionary = NSMutableDictionary()
-        let downloadSessionUrl: NSDictionary = imageMeta.value(forKey: "download_session_url") as! NSDictionary
-        let getUrl = downloadSessionUrl.value(forKey: "baseUrl")
-        let queryParams = downloadSessionUrl.value(forKey: "queryParams")
-        var imageView: UIImageView? = nil
-        if (imageMeta.value(forKey: "imageView") != nil){
-            imageView = imageMeta.value(forKey: "imageView") as! UIImageView
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
+        //postData.setValue(username, forKey: "username")
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+        let profileUnFollowEndPoint = self.profileFollowEndPoint+username+"/follow/"
+        print(profileUnFollowEndPoint)
+        func onServerResponse(_ serverResponse : NSDictionary){
+            print("Unfollowed profile")
+            print(serverResponse)
+            onComplete(serverResponse)
         }
-        func onServerResponse(_ serverResponse : Any?){
-            if imageView != nil {
-                print("imageview is not nil")
-                imageView?.image = UIImage(data: serverResponse as! Data)!
-            }
-        }
-        HttpModel.shared.getRequest(postHeaders, "", getUrl as! String, queryParams as! NSDictionary, onServerResponse)
+        HttpModel.shared.deleteRequest(postHeaders: postHeaders, endPoint: profileUnFollowEndPoint, onComplete: onServerResponse)
+        
     }
     
-    func getSessionUrlToDownloadItem(_ objectName: String, _ imageView: UIImageView, _ onComplete: @escaping ((NSDictionary)->Void))  {
-        let postHeaders: NSDictionary = NSMutableDictionary()
+    func followUser(username : String, _ onComplete:@escaping ((_ getAllProfilesResponse: NSDictionary)->Void)) {
         let postData: NSDictionary = NSMutableDictionary()
-        postData.setValue(objectName, forKey: "objectName")
-        func onServerResponse(_ serverResponse : Any?){
-            let decodedResponse = serverResponse as! NSDictionary
-            onComplete(decodedResponse)
+        let postHeaders: NSDictionary = NSMutableDictionary()
+        let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
+        //postData.setValue(username, forKey: "username")
+        postHeaders.setValue(authHeaderValue, forKey: "Authorization")
+        let profileFollowEndPoint = self.profileFollowEndPoint+username+"/follow/"
+        print(profileFollowEndPoint)
+        func onServerResponse(_ serverResponse : NSDictionary){
+            print("Followed profile")
+            print(serverResponse)
+            onComplete(serverResponse)
         }
-        let callbackParams = NSMutableDictionary()
-        callbackParams.setValue(imageView, forKey: "imageView")
-        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: downloadSessionUrlEndPoint, onComplete: onServerResponse, callbackParams: callbackParams)
-    }
-    
-    func getImage(_ objectName: String, _ imageView: UIImageView){
-        if !objectName.isEmpty{
-            print(objectName)
-            getSessionUrlToDownloadItem(objectName, imageView, downloadImageUsingSessionUrl)}
+        HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: profileFollowEndPoint, onComplete: onServerResponse)
+        
     }
     
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {

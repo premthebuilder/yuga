@@ -13,23 +13,32 @@ class ProfileViewController: UIViewController {
     
     var userModel: UserModel!
     var profileModel = ProfileModel()
+    var following_list = NSArray()
+    var followers_list = NSArray()
     
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var profileLabel: UILabel!
+    
     override func viewDidLoad() {
         profileModel.getProfile(onGetProfile)
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         self.view.addSubview(followersLabel)
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.view.addSubview(followingLabel)
         
-        followersLabel.addGestureRecognizer(gestureRecognizer)
+        let followingGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(followingTap))
+        
+        followingLabel.addGestureRecognizer(followingGestureRecognizer)
+        
+        let followersGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(followersTap))
+        
+        followersLabel.addGestureRecognizer(followersGestureRecognizer)
     }
     
-    @objc func handleTap(gestureRecognizer: UIGestureRecognizer) {
+    @objc func followingTap(gestureRecognizer: UIGestureRecognizer) {
         print("label clicked")
         
         let flowLayout = UICollectionViewFlowLayout()
@@ -38,8 +47,20 @@ class ProfileViewController: UIViewController {
         //let profileFollowersListViewController = self.storyboard?.instantiateViewController(withIdentifier: "profileFollowersListViewController") as! ProfileFollowersListViewController
         
         _ = UINavigationController(rootViewController: profileCollectionViewController)
+        profileCollectionViewController.userList = self.following_list
+        self.navigationController?.pushViewController(profileCollectionViewController, animated: true)
+    }
+    
+    @objc func followersTap(gestureRecognizer: UIGestureRecognizer) {
+        print("label clicked")
         
-        //self.present(navigationController, animated:true, completion:nil)
+        let flowLayout = UICollectionViewFlowLayout()
+        let profileCollectionViewController = ProfileFollowersListViewController(collectionViewLayout : flowLayout)
+        
+        //let profileFollowersListViewController = self.storyboard?.instantiateViewController(withIdentifier: "profileFollowersListViewController") as! ProfileFollowersListViewController
+        
+        _ = UINavigationController(rootViewController: profileCollectionViewController)
+        profileCollectionViewController.userList = self.followers_list
         self.navigationController?.pushViewController(profileCollectionViewController, animated: true)
     }
     
@@ -62,9 +83,13 @@ class ProfileViewController: UIViewController {
         
         self.profileLabel.text = username
         let objectUrl = profile.value(forKey: "image")
-        self.followersLabel.text = String(profile.value(forKey: "followers") as! Int) + " Following"
-        self.followingLabel.text = String(profile.value(forKey: "following") as! Int) + " Followers"
-        //if (object_url != nil) {profileModel.getImage(object_url as! String, self.imageView)}
+        
+        self.following_list = profile.value(forKey: "following") as! NSArray
+        self.followers_list = profile.value(forKey: "followers") as! NSArray
+        
+        self.followingLabel.text = String(self.following_list.count) + " Following"
+        self.followersLabel.text = String(self.followers_list.count) + " Followers"
+        
         if (objectUrl != nil ) {profileModel.downloadImage(objectUrl as! String, self.imageView)}
     }
     
