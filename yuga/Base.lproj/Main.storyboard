@@ -19,7 +19,7 @@
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Id" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJm-5y-8Ln">
                                 <rect key="frame" x="71" y="257" width="234" height="30"/>
@@ -180,11 +180,11 @@
                         <viewControllerLayoutGuide type="bottom" id="RGg-eR-9Ji"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eDW-rz-Uj6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SS4-oj-y8R">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XhH-se-13v">
@@ -194,8 +194,8 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell" id="dpc-XX-LB4" userLabel="My Label" customClass="MyCollectionViewCell" customModule="yuga" customModuleProvider="target">
-                                        <rect key="frame" x="0.5" y="0.0" width="374" height="111"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell" id="dpc-XX-LB4" userLabel="My Label" customClass="MyCollectionViewCell" customModule="yuga" customModuleProvider="target">
+                                        <rect key="frame" x="1" y="0.0" width="374" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="111"/>
@@ -229,43 +229,23 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="khD-eQ-dIb" id="FdA-kL-mwU"/>
-                                    <outlet property="delegate" destination="khD-eQ-dIb" id="vV3-rP-Kbl"/>
+                                    <outlet property="dataSource" destination="khD-eQ-dIb" id="fKe-4p-gZn"/>
+                                    <outlet property="delegate" destination="khD-eQ-dIb" id="nRd-f4-lyK"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" translatesAutoresizingMaskIntoConstraints="NO" id="mjw-Rc-UUN">
-                                <rect key="frame" x="0.0" y="567" width="375" height="56"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="syP-hD-4wa"/>
-                                    <barButtonItem image="cameraIcon" id="XVc-oj-2Og">
-                                        <inset key="imageInsets" minX="2" minY="3" maxX="0.0" maxY="0.0"/>
-                                        <color key="tintColor" red="0.52245265460000001" green="0.53909333869999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="useCamera:" destination="khD-eQ-dIb" id="CNJ-7a-292"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bkG-Pd-nhL"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mjw-Rc-UUN" firstAttribute="leading" secondItem="eDW-rz-Uj6" secondAttribute="leading" id="Nag-Q6-7Xj"/>
-                            <constraint firstAttribute="trailing" secondItem="mjw-Rc-UUN" secondAttribute="trailing" id="PBE-ok-ZFd"/>
-                            <constraint firstItem="mjw-Rc-UUN" firstAttribute="bottom" secondItem="RGg-eR-9Ji" secondAttribute="top" id="hqi-Gs-VI2"/>
-                        </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="i6r-eh-3cp"/>
-                    </toolbarItems>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="5XU-ln-nVg"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="newsList" destination="SS4-oj-y8R" id="9dn-hs-KGP"/>
+                        <outlet property="newsList" destination="SS4-oj-y8R" id="zyy-Pk-o6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFv-QU-3yw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,7 +318,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cameraIcon" width="50" height="50"/>
         <image name="icons8-Approval-30.png" width="30" height="30"/>
         <image name="icons8-Foul-30.png" width="30" height="30"/>
     </resources>

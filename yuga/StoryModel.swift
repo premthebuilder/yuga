@@ -58,7 +58,7 @@ class StoryModel {
         let postHeaders: NSDictionary = NSMutableDictionary()
         let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
-
+        
         func onGetStory(getStoryResponse: NSDictionary){
             let mergedParams: NSDictionary = NSMutableDictionary()
             for (key, value) in updateParams {
@@ -85,7 +85,7 @@ class StoryModel {
         func onServerResponse(_ serverResponse : NSDictionary){
             print(serverResponse)
             print("Congrats, you have created tags!")
-//            onComplete(serverResponse.value(forKey: "id") as! Int)
+            //            onComplete(serverResponse.value(forKey: "id") as! Int)
         }
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: createTagsEndPoint, onComplete: onServerResponse)
     }
@@ -96,7 +96,7 @@ class StoryModel {
         let authHeaderValue = "Token " + UserDefaults.standard.string(forKey: "session")!
         postHeaders.setValue(authHeaderValue, forKey: "Authorization")
         let approveStoryEndPointFull = approveStoryEndPoint + "/" + String(storyId) + "/"
-//        postData.setValue(storyId, forKey: "story_id")
+        //        postData.setValue(storyId, forKey: "story_id")
         HttpModel.shared.postRequest(postData: postData, postHeaders: postHeaders, endPoint: approveStoryEndPointFull, onComplete: onComplete)
     }
     

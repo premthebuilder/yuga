@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1D2A9BD71EDC556B00847CBD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD61EDC556B00847CBD /* MainViewController.swift */; };
 		1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */; };
+		1D4BE0B720577D6300BC378D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BE0B620577D6300BC378D /* ProfileVC.swift */; };
+		1D4BE0BB20577DFC00BC378D /* BookmarksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BE0BA20577DFC00BC378D /* BookmarksVC.swift */; };
+		1D4BE0BD2058AD1600BC378D /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BE0BC2058AD1600BC378D /* SearchVC.swift */; };
+		1D4BE0C1205C8E0900BC378D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BE0C0205C8E0900BC378D /* HomeViewController.swift */; };
+		1D55CFBF20635F7000672252 /* EditorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55CFBE20635F7000672252 /* EditorUtil.swift */; };
+		1D55CFC12066BDCA00672252 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55CFC02066BDCA00672252 /* MainTabBarController.swift */; };
 		1D61B1071F0B4B6400235816 /* StoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61B1061F0B4B6400235816 /* StoryModel.swift */; };
 		1D61B10B1F0B568300235816 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61B10A1F0B568200235816 /* ItemModel.swift */; };
 		1D62193B204A2D390089DF88 /* Aztec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193A204A2D390089DF88 /* Aztec.framework */; };
@@ -125,6 +131,12 @@
 /* Begin PBXFileReference section */
 		1D2A9BD61EDC556B00847CBD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1D4BE0B620577D6300BC378D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		1D4BE0BA20577DFC00BC378D /* BookmarksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksVC.swift; sourceTree = "<group>"; };
+		1D4BE0BC2058AD1600BC378D /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		1D4BE0C0205C8E0900BC378D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1D55CFBE20635F7000672252 /* EditorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorUtil.swift; sourceTree = "<group>"; };
+		1D55CFC02066BDCA00672252 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1D61B1061F0B4B6400235816 /* StoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryModel.swift; sourceTree = "<group>"; };
 		1D61B10A1F0B568200235816 /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		1D62193A204A2D390089DF88 /* Aztec.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aztec.framework; path = Carthage/Build/iOS/Aztec.framework; sourceTree = "<group>"; };
@@ -215,6 +227,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		1D55CFBB20635F5100672252 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1D55CFBE20635F7000672252 /* EditorUtil.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		1D70F2001EF4D974000FE96C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +263,11 @@
 				1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */,
 				1D2A9BD61EDC556B00847CBD /* MainViewController.swift */,
 				1D2A9BD81EDCE83100847CBD /* SignUpViewController.swift */,
+				1D4BE0B620577D6300BC378D /* ProfileVC.swift */,
+				1D4BE0BA20577DFC00BC378D /* BookmarksVC.swift */,
+				1D4BE0BC2058AD1600BC378D /* SearchVC.swift */,
+				1D4BE0C0205C8E0900BC378D /* HomeViewController.swift */,
+				1D55CFC02066BDCA00672252 /* MainTabBarController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -274,6 +299,7 @@
 		1DD61BE11EC5453000E05994 /* yuga */ = {
 			isa = PBXGroup;
 			children = (
+				1D55CFBB20635F5100672252 /* Utils */,
 				1DF896022050B7C10026EC10 /* Editor */,
 				1D28BC1C1F000B9600E82932 /* Resources */,
 				1DD61C111EC5459D00E05994 /* SupportingFiles */,
@@ -534,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D55CFBF20635F7000672252 /* EditorUtil.swift in Sources */,
 				1DC9076F1F23E820005AE148 /* MyCollectionViewCell.swift in Sources */,
 				1DA003842050BDA9002A3F51 /* CaptionShortcodePreProcessor.swift in Sources */,
 				1D61B10B1F0B568300235816 /* ItemModel.swift in Sources */,
@@ -542,7 +569,9 @@
 				1D2A9BD91EDCE83100847CBD /* SignUpViewController.swift in Sources */,
 				1DA003792050BD98002A3F51 /* HTMLAttachmentRenderer.swift in Sources */,
 				1D70F24E1EF71915000FE96C /* NewStoryViewController.swift in Sources */,
+				1D4BE0B720577D6300BC378D /* ProfileVC.swift in Sources */,
 				1DF895FD2050B7AC0026EC10 /* EditorController.swift in Sources */,
+				1D4BE0BB20577DFC00BC378D /* BookmarksVC.swift in Sources */,
 				1DF896012050B7AC0026EC10 /* UnknownEditorViewController.swift in Sources */,
 				1DA003852050BDA9002A3F51 /* CaptionShortcodePostProcessor.swift in Sources */,
 				1DA003802050BDA9002A3F51 /* VideoShortcodePostProcessor.swift in Sources */,
@@ -551,12 +580,15 @@
 				1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */,
 				1DD61BE51EC5453000E05994 /* LoginViewController.swift in Sources */,
 				1DD61C131EC8AAB400E05994 /* UserModel.swift in Sources */,
+				1D4BE0C1205C8E0900BC378D /* HomeViewController.swift in Sources */,
 				1DFB78A91EF37FBA001D167E /* HttpModel.swift in Sources */,
+				1D4BE0BD2058AD1600BC378D /* SearchVC.swift in Sources */,
 				1DA003782050BD98002A3F51 /* CommentAttachmentRenderer.swift in Sources */,
 				1DD61BE31EC5453000E05994 /* AppDelegate.swift in Sources */,
 				1DA003772050BD98002A3F51 /* SpecialTagAttachmentRenderer.swift in Sources */,
 				1DF895FF2050B7AC0026EC10 /* MenuBar.swift in Sources */,
 				1D2A9BD71EDC556B00847CBD /* MainViewController.swift in Sources */,
+				1D55CFC12066BDCA00672252 /* MainTabBarController.swift in Sources */,
 				1DA003822050BDA9002A3F51 /* ShortcodeProcessor.swift in Sources */,
 				1DA003812050BDA9002A3F51 /* WPVideoShortcodePreProcessor.swift in Sources */,
 			);

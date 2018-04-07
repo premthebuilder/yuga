@@ -10,9 +10,9 @@ import Foundation
 
 class HttpModel {
     
-//    static let shared = HttpModel(baseUrl: URL(string: "http://192.168.86.224:8000/")!)
+    //    static let shared = HttpModel(baseUrl: URL(string: "http://192.168.86.224:8000/")!)
     static let shared = HttpModel(baseUrl: URL(string: "http://localhost:8000/")!)
-//    static let shared = HttpModel(baseUrl: URL(string: "https://yuga-171020.appspot.com/")!)
+    //    static let shared = HttpModel(baseUrl: URL(string: "https://yuga-171020.appspot.com/")!)
     
     private init(baseUrl: URL){
         self.baseUrl = baseUrl;
@@ -30,7 +30,7 @@ class HttpModel {
         let postBody = try? JSONSerialization.data(withJSONObject: postData, options: [])
         postHeaders.setValue("application/json", forKey: "Content-Type")
         request.allHTTPHeaderFields = postHeaders as? [String : String]
-//        request.httpBody = paramString.data(using: String.Encoding.utf8)
+        //        request.httpBody = paramString.data(using: String.Encoding.utf8)
         request.httpBody = postBody
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
@@ -56,7 +56,7 @@ class HttpModel {
     }
     
     func postByteRequest(_ fileData: Data, _ putHeaders: NSDictionary, _ queryParams:NSDictionary, _ uploadUrl: String,
-                    _ onComplete: @escaping ((NSDictionary)->Void)) {
+                         _ onComplete: @escaping ((NSDictionary)->Void)) {
         if let urlComponents = NSURLComponents(string: uploadUrl),
             var queryItems = (urlComponents.queryItems ?? []) as? [URLQueryItem] {
             for qp in queryParams {
@@ -93,8 +93,8 @@ class HttpModel {
                 httpResponseDict.setValue(httpResponse.allHeaderFields, forKey: "headers")
                 httpResponseDict.setValue(httpResponse.statusCode, forKey: "status")
                 do{
-                let dataDict = try JSONSerialization.jsonObject(with: data!, options: [])
-                httpResponseDict.setValue(dataDict as! NSDictionary, forKey: "data")
+                    let dataDict = try JSONSerialization.jsonObject(with: data!, options: [])
+                    httpResponseDict.setValue(dataDict as! NSDictionary, forKey: "data")
                 }
                 catch{}
                 DispatchQueue.main.async{
@@ -106,7 +106,7 @@ class HttpModel {
     }
     
     func patchRequest(patchData: NSDictionary, patchHeaders: NSDictionary, endPoint: String,
-                     onComplete: @escaping ((NSDictionary)->Void), callbackParams: NSDictionary = NSMutableDictionary()) {
+                      onComplete: @escaping ((NSDictionary)->Void), callbackParams: NSDictionary = NSMutableDictionary()) {
         let url:URL = baseUrl.appendingPathComponent(endPoint)
         let session = URLSession.shared
         let request = NSMutableURLRequest(url: url)
