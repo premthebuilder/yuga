@@ -15,17 +15,22 @@
 		1D4BE0C1205C8E0900BC378D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4BE0C0205C8E0900BC378D /* HomeViewController.swift */; };
 		1D55CFBF20635F7000672252 /* EditorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55CFBE20635F7000672252 /* EditorUtil.swift */; };
 		1D55CFC12066BDCA00672252 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55CFC02066BDCA00672252 /* MainTabBarController.swift */; };
+		1D5705F22083A19D00392BAD /* Aztec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193A204A2D390089DF88 /* Aztec.framework */; };
+		1D5705F32083A19D00392BAD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193C204AD8840089DF88 /* CryptoSwift.framework */; };
+		1D5705F42083A19D00392BAD /* Gridicons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70E3F42050DCB000C80E7F /* Gridicons.framework */; };
+		1D5705F52083A19D00392BAD /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFB1C39205566DB007C4154 /* SwiftSoup.framework */; };
+		1D5705F62083A6BF00392BAD /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFB1C39205566DB007C4154 /* SwiftSoup.framework */; };
+		1D5705F72083A6BF00392BAD /* SwiftSoup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFB1C39205566DB007C4154 /* SwiftSoup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D5705F82083A6BF00392BAD /* Gridicons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70E3F42050DCB000C80E7F /* Gridicons.framework */; };
+		1D5705F92083A6BF00392BAD /* Gridicons.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70E3F42050DCB000C80E7F /* Gridicons.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D5705FA2083A6BF00392BAD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193C204AD8840089DF88 /* CryptoSwift.framework */; };
+		1D5705FB2083A6BF00392BAD /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193C204AD8840089DF88 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D5705FC2083A6BF00392BAD /* Aztec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193A204A2D390089DF88 /* Aztec.framework */; };
+		1D5705FD2083A6BF00392BAD /* Aztec.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193A204A2D390089DF88 /* Aztec.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1D5705FE2083A6BF00392BAD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DDFF7CB202763700046BA44 /* CoreLocation.framework */; };
+		1D5705FF2083A6BF00392BAD /* CoreLocation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DDFF7CB202763700046BA44 /* CoreLocation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D61B1071F0B4B6400235816 /* StoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61B1061F0B4B6400235816 /* StoryModel.swift */; };
 		1D61B10B1F0B568300235816 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61B10A1F0B568200235816 /* ItemModel.swift */; };
-		1D62193B204A2D390089DF88 /* Aztec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193A204A2D390089DF88 /* Aztec.framework */; };
-		1D62193D204AD8840089DF88 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193C204AD8840089DF88 /* CryptoSwift.framework */; };
-		1D62193E204ADA360089DF88 /* Aztec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193A204A2D390089DF88 /* Aztec.framework */; };
-		1D62193F204ADA360089DF88 /* Aztec.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193A204A2D390089DF88 /* Aztec.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1D621940204ADA3E0089DF88 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193C204AD8840089DF88 /* CryptoSwift.framework */; };
-		1D621941204ADA3E0089DF88 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D62193C204AD8840089DF88 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1D70E3F72050DCB000C80E7F /* Gridicons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70E3F42050DCB000C80E7F /* Gridicons.framework */; };
-		1D70E3F82050DCB000C80E7F /* Gridicons.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70E3F42050DCB000C80E7F /* Gridicons.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1D70F20F1EF4DB37000FE96C /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70F20A1EF4D975000FE96C /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D70F24E1EF71915000FE96C /* NewStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D70F24D1EF71915000FE96C /* NewStoryViewController.swift */; };
 		1DA003772050BD98002A3F51 /* SpecialTagAttachmentRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA003742050BD97002A3F51 /* SpecialTagAttachmentRenderer.swift */; };
 		1DA003782050BD98002A3F51 /* CommentAttachmentRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA003752050BD97002A3F51 /* CommentAttachmentRenderer.swift */; };
@@ -47,14 +52,11 @@
 		1DD61C131EC8AAB400E05994 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C121EC8AAB400E05994 /* UserModel.swift */; };
 		1DD61C151EC8B8AC00E05994 /* YugaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD61C141EC8B8AC00E05994 /* YugaClient.swift */; };
 		1DD61C181EC8C67E00E05994 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DD61C171EC8C67E00E05994 /* Settings.plist */; };
-		1DDFF7CC202763700046BA44 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DDFF7CB202763700046BA44 /* CoreLocation.framework */; };
 		1DF895FD2050B7AC0026EC10 /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF895F82050B7AA0026EC10 /* EditorController.swift */; };
 		1DF895FE2050B7AC0026EC10 /* AttachmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF895F92050B7AA0026EC10 /* AttachmentDetailsViewController.swift */; };
 		1DF895FF2050B7AC0026EC10 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF895FA2050B7AB0026EC10 /* MenuBar.swift */; };
 		1DF896002050B7AC0026EC10 /* OptionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF895FB2050B7AB0026EC10 /* OptionsTableView.swift */; };
 		1DF896012050B7AC0026EC10 /* UnknownEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF895FC2050B7AB0026EC10 /* UnknownEditorViewController.swift */; };
-		1DFB1C3C205566DB007C4154 /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFB1C39205566DB007C4154 /* SwiftSoup.framework */; };
-		1DFB1C3D205566DB007C4154 /* SwiftSoup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFB1C39205566DB007C4154 /* SwiftSoup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1DFB78A91EF37FBA001D167E /* HttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB78A81EF37FBA001D167E /* HttpModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,13 +80,6 @@
 			containerPortal = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 0AB5D8711D0EEECD002D3A17;
-			remoteInfo = DropDown;
-		};
-		1D70F20B1EF4DAF7000FE96C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1D70F1FF1EF4D974000FE96C /* DropDown.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 0AB5D8701D0EEECD002D3A17;
 			remoteInfo = DropDown;
 		};
 		1D70F2101EF4DB37000FE96C /* PBXContainerItemProxy */ = {
@@ -111,17 +106,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1D70F2121EF4DB37000FE96C /* Embed Frameworks */ = {
+		1D5706002083A6BF00392BAD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1D621941204ADA3E0089DF88 /* CryptoSwift.framework in Embed Frameworks */,
-				1D70E3F82050DCB000C80E7F /* Gridicons.framework in Embed Frameworks */,
-				1DFB1C3D205566DB007C4154 /* SwiftSoup.framework in Embed Frameworks */,
-				1D62193F204ADA360089DF88 /* Aztec.framework in Embed Frameworks */,
-				1D70F20F1EF4DB37000FE96C /* DropDown.framework in Embed Frameworks */,
+				1D5705FB2083A6BF00392BAD /* CryptoSwift.framework in Embed Frameworks */,
+				1D5705FF2083A6BF00392BAD /* CoreLocation.framework in Embed Frameworks */,
+				1D5705F72083A6BF00392BAD /* SwiftSoup.framework in Embed Frameworks */,
+				1D5705FD2083A6BF00392BAD /* Aztec.framework in Embed Frameworks */,
+				1D5705F92083A6BF00392BAD /* Gridicons.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,13 +180,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D62193D204AD8840089DF88 /* CryptoSwift.framework in Frameworks */,
-				1D62193B204A2D390089DF88 /* Aztec.framework in Frameworks */,
-				1DFB1C3C205566DB007C4154 /* SwiftSoup.framework in Frameworks */,
-				1D62193E204ADA360089DF88 /* Aztec.framework in Frameworks */,
-				1D621940204ADA3E0089DF88 /* CryptoSwift.framework in Frameworks */,
-				1DDFF7CC202763700046BA44 /* CoreLocation.framework in Frameworks */,
-				1D70E3F72050DCB000C80E7F /* Gridicons.framework in Frameworks */,
+				1D5705FA2083A6BF00392BAD /* CryptoSwift.framework in Frameworks */,
+				1D5705F22083A19D00392BAD /* Aztec.framework in Frameworks */,
+				1D5705FC2083A6BF00392BAD /* Aztec.framework in Frameworks */,
+				1D5705FE2083A6BF00392BAD /* CoreLocation.framework in Frameworks */,
+				1D5705F32083A19D00392BAD /* CryptoSwift.framework in Frameworks */,
+				1D5705F62083A6BF00392BAD /* SwiftSoup.framework in Frameworks */,
+				1D5705F42083A19D00392BAD /* Gridicons.framework in Frameworks */,
+				1D5705F52083A19D00392BAD /* SwiftSoup.framework in Frameworks */,
+				1D5705F82083A6BF00392BAD /* Gridicons.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,12 +396,11 @@
 				1DD61BDB1EC5453000E05994 /* Sources */,
 				1DD61BDC1EC5453000E05994 /* Frameworks */,
 				1DD61BDD1EC5453000E05994 /* Resources */,
-				1D70F2121EF4DB37000FE96C /* Embed Frameworks */,
+				1D5706002083A6BF00392BAD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1D70F20C1EF4DAF7000FE96C /* PBXTargetDependency */,
 				1D70F2111EF4DB37000FE96C /* PBXTargetDependency */,
 			);
 			name = yuga;
@@ -613,11 +609,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1D70F20C1EF4DAF7000FE96C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DropDown;
-			targetProxy = 1D70F20B1EF4DAF7000FE96C /* PBXContainerItemProxy */;
-		};
 		1D70F2111EF4DB37000FE96C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DropDown;
@@ -765,8 +756,10 @@
 		1DD61C081EC5453100E05994 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96DE6838NK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -778,6 +771,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aster.yuga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -786,8 +780,10 @@
 		1DD61C091EC5453100E05994 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 96DE6838NK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -799,6 +795,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = aster.yuga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -49,7 +49,7 @@ class AttachmentDetailsViewController: UITableViewController
 
         linkURLTextField.text = linkURL?.absoluteString
 
-        captionTextView.attributedText = attachment.caption
+//        captionTextView.attributedText = attachment.caption
         altTextField.text = attachment.extraAttributes["alt"]
     }
 

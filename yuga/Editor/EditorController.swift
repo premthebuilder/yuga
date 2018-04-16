@@ -573,6 +573,7 @@ extension EditorController {
             insertMoreAttachment()
         case .horizontalruler:
             insertHorizontalRuler()
+        case .code: break
         }
         
         updateFormatBar()
@@ -1390,7 +1391,7 @@ private extension EditorController
                 
                 updated.alignment = alignment
                 updated.size = size
-                updated.caption = caption
+//                updated.caption = caption
                 
                 updated.updateURL(url)
             }
@@ -1470,6 +1471,8 @@ extension FormattingIdentifier {
             return gridicon(.headingH5)
         case .header6:
             return gridicon(.headingH6)
+        case .code:
+            return gridicon(.code)
         }
     }
     
@@ -1518,6 +1521,8 @@ extension FormattingIdentifier {
             return "formatToolbarToggleH5"
         case .header6:
             return "formatToolbarToggleH6"
+        case .code:
+            return "formatToolbarToggleHtmlView"
         }
     }
     
@@ -1561,6 +1566,8 @@ extension FormattingIdentifier {
             return NSLocalizedString("Heading 5", comment: "Accessibility label for selecting h5 paragraph style button on the formatting toolbar.")
         case .header6:
             return NSLocalizedString("Heading 6", comment: "Accessibility label for selecting h6 paragraph style button on the formatting toolbar.")
+        case .code:
+            return NSLocalizedString("HTML", comment:"Accessibility label for HTML button on formatting toolbar.")
         }
     }
 }

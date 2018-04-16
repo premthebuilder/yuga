@@ -673,6 +673,44 @@ class TextViewTests: XCTestCase {
         XCTAssertEqual(textView.getHTML(), "<p><a href=\"\(linkUrl)\">\(linkTitle)</a></p>")
     }
 
+    /// Tests that inserting a link on the same place twice works properly
+    ///
+    func testSetLinkTwiceInSameRangeWorks() {
+
+        let linkUrl = "www.wordpress.com"
+        let linkTitle = "WordPress.com"
+        let insertionRange = NSRange(location: 0, length: linkTitle.utf8.count)
+
+        let textView = createTextView(withHTML: linkTitle)
+        let url = URL(string: linkUrl)!
+
+        textView.setLink(url, inRange: insertionRange)
+        XCTAssertEqual(textView.getHTML(), "<p><a href=\"\(linkUrl)\">\(linkTitle)</a></p>")
+        textView.setLink(url, inRange: insertionRange)
+
+        XCTAssertEqual(textView.getHTML(), "<p><a href=\"\(linkUrl)\">\(linkTitle)</a></p>")
+    }
+
+    /// Tests that removing a link on the same place twice works properly
+    ///
+    func testRemoveLinkTwiceInSameRangeWorks() {
+
+        let linkUrl = "www.wordpress.com"
+        let linkTitle = "WordPress.com"
+        let insertionRange = NSRange(location: 0, length: linkTitle.utf8.count)
+
+        let textView = createTextView(withHTML: linkTitle)
+        let url = URL(string: linkUrl)!
+
+        textView.setLink(url, inRange: insertionRange)
+        XCTAssertEqual(textView.getHTML(), "<p><a href=\"\(linkUrl)\">\(linkTitle)</a></p>")
+        textView.removeLink(inRange: insertionRange)
+        XCTAssertEqual(textView.getHTML(), "<p>\(linkTitle)</p>")
+        textView.removeLink(inRange: insertionRange)
+
+        XCTAssertEqual(textView.getHTML(), "<p>\(linkTitle)</p>")
+    }
+
     func testParsingOfInvalidLink() {
         let html = "<p><a href=\"\\http:\\badlink&?\">link</a></p>"
         let textView = createTextView(withHTML: html)
@@ -736,7 +774,7 @@ class TextViewTests: XCTestCase {
         XCTAssertEqual(textView.getHTML(), "<h1>Header</h1><p>1</p>")
     }
 
-    /// Tests that Newline Characters inserted at the middle of a H1 String won't cause the newline to loose the style.
+    /// Tests that Newline Characters inserted at the middle of a H1 String will cause the newline to loose the style.
     ///
     /// Input:
     ///     - "Header Header"
@@ -755,7 +793,7 @@ class TextViewTests: XCTestCase {
         let identifiers = textView.formatIdentifiersAtIndex(textView.selectedRange.location)
         XCTAssert(identifiers.contains(.header1))
 
-        XCTAssertEqual(textView.getHTML(), "<h1>Header</h1><h1> Header</h1>")
+        XCTAssertEqual(textView.getHTML(), "<h1>Header</h1><p> Header</p>")
     }
 
 
